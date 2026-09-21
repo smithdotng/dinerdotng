@@ -4,6 +4,7 @@ import { Spot } from '@/models/Spot';
 import { User } from '@/models/User';
 import { PLANS } from '@/lib/plans';
 import { fmtDate, naira } from '@/lib/format';
+import { recheckPaymentAction } from '@/actions/admin';
 
 export default async function AdminPayments() {
     await connectDB();
@@ -16,7 +17,7 @@ export default async function AdminPayments() {
     const email = Object.fromEntries(users.map((u) => [String(u._id), u.email]));
     return (
         <div className="card-dn"><div className="table-responsive"><table className="table-dn">
-            <thead><tr><th>Date</th><th>Spot</th><th>Account</th><th>Plan</th><th>Amount</th><th>Provider</th><th>Reference</th><th>Status</th></tr></thead>
+            <thead><tr><th>Date</th><th>Spot</th><th>Account</th><th>Plan</th><th>Amount</th><th>Provider</th><th>Reference</th><th>Status</th><th></th></tr></thead>
             <tbody>
                 {payments.map((p) => (
                     <tr key={String(p._id)}>
@@ -28,9 +29,12 @@ export default async function AdminPayments() {
                         <td>{p.provider}</td>
                         <td className="small"><code>{p.reference}</code></td>
                         <td><span className={`pill ${p.status === 'success' ? 'pill-green' : p.status === 'failed' ? 'pill-red' : 'pill-amber'}`}>{p.status}</span></td>
+                        <td>{p.provider === 'flutterwave' && p.status !== 'success' && (
+                            <form action={recheckPaymentAction.bind(null, String(p._id))}><button className="btn-dn-outline btn-sm-dn" title="Ask Flutterwave whether this was paid"><i className="fas fa-rotate"></i> Re-check</button></form>
+                        )}</td>
                     </tr>
                 ))}
-                {!payments.length && <tr><td colSpan={8} className="text-center text-muted-dn py-4">No payments yet.</td></tr>}
+                {!payments.length && <tr><td colSpan={9} className="text-center text-muted-dn py-4">No payments yet.</td></tr>}
             </tbody>
         </table></div></div>
     );

@@ -1,44 +1,49 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { connectDB } from '@/lib/db';
 import { getCurrentUser } from '@/lib/session';
 import { Payment } from '@/models/Payment';
 import { PLANS } from '@/lib/plans';
-import { verifyByReference, verifyTransaction } from '@/lib/flutterwave';
-import { activatePayment } from '@/lib/subscription';
+import { reconcilePayment } from '@/lib/subscription';
 import { flashUrl } from '@/lib/helpers';
 
-// Flutterwave redirects here after checkout: ?status=successful|cancelled&tx_ref=...&transaction_id=...
+// Flutterwave redirects here after checkout: ?status=successful|completed|cancelled&tx_ref=...&transaction_id=...
+// Activation depends only on Flutterwave's own verify API, so it is safe even if the owner's
+// session didn't survive the trip (e.g. they paid on another device or domain).
 export async function GET(req: Request) {
-    const to = (path: string, kind: 'success' | 'error', msg: string) => NextResponse.redirect(new URL(flashUrl(path, kind, msg), req.url));
     const user = await getCurrentUser();
-    if (!user) return NextResponse.redirect(new URL('/login', req.url));
+    const home = user ? '/dashboard' : '/login';
+    const billing = user ? '/dashboard/billing' : '/login';
+    const to = (path: string, kind: 'success' | 'error', msg: string) => NextResponse.redirect(new URL(flashUrl(path, kind, msg), req.url));
+
     const params = new URL(req.url).searchParams;
     const txRef = params.get('tx_ref') || '';
     const transactionId = params.get('transaction_id') || '';
-    await connectDB();
-    const payment = await Payment.findOne({ reference: txRef, user: user.id });
-    if (!payment) return to('/dashboard/billing', 'error', 'Payment not found.');
-    if (payment.status === 'success') return NextResponse.redirect(new URL('/dashboard/billing', req.url));
+    if (!txRef) return to(billing, 'error', 'Missing payment reference.');
 
-    if (params.get('status') === 'cancelled') {
+    await connectDB();
+    const payment = await Payment.findOne({ reference: txRef });
+    if (!payment || (user && String(payment.user) !== user.id)) return to(billing, 'error', 'Payment not found.');
+    if (payment.status === 'success') return to(home, 'success', 'Payment confirmed — your plan is active.');
+
+    if (params.get('status') === 'cancelled' && !transactionId) {
         payment.status = 'failed';
         await payment.save();
-        return to('/dashboard/billing', 'error', 'Payment cancelled. You have not been charged.');
+        return to(billing, 'error', 'Payment cancelled. You have not been charged.');
     }
 
     try {
-        // Verify with Flutterwave — never trust the redirect's status alone.
-        const tx = transactionId ? await verifyTransaction(transactionId) : await verifyByReference(txRef);
-        const ok = tx.status === 'successful' && tx.tx_ref === payment.reference && tx.currency === 'NGN' && tx.amount >= payment.amount;
-        if (ok) {
-            payment.transactionId = String(tx.id);
-            await activatePayment(payment);
-            return to('/dashboard', 'success', `Payment received — your ${PLANS[payment.plan].name} plan is active. Welcome aboard!`);
+        const result = await reconcilePayment(payment, transactionId || undefined);
+        if (result === 'activated' || result === 'paid') {
+            revalidatePath('/', 'layout');
+            const msg = `Payment received — your ${PLANS[payment.plan].name} plan is active. Welcome aboard!`;
+            return to(home, 'success', user ? msg : `${msg} Log in to manage your spot.`);
         }
-        payment.status = 'failed';
-        await payment.save();
-        return to('/dashboard/billing', 'error', 'That payment was not completed. You have not been charged.');
+        if (result === 'pending') {
+            return to(billing, 'success', 'Your payment is still being confirmed by the bank. Your spot goes live automatically once it clears — refresh this page in a few minutes.');
+        }
+        return to(billing, 'error', 'That payment was not completed. If you were debited, refresh this page in a minute or contact support with reference ' + txRef + '.');
     } catch (e) {
-        return to('/dashboard/billing', 'error', `We couldn't confirm the payment: ${(e as Error).message}`);
+        return to(billing, 'error', `We couldn't confirm the payment yet: ${(e as Error).message}. Refresh this page in a minute.`);
     }
 }

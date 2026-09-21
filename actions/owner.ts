@@ -17,7 +17,7 @@ import { isFile, removeImage, saveImage, UploadError } from '@/lib/storage';
 import { isPlanKey, PLANS, priceFor } from '@/lib/plans';
 import { createPaymentLink, flutterwaveEnabled } from '@/lib/flutterwave';
 import { activatePayment } from '@/lib/subscription';
-import { appUrl } from '@/lib/appUrl';
+import { appUrl, requestOrigin } from '@/lib/appUrl';
 
 const go = (path: string, kind: 'success' | 'error' | 'info', msg: string): never => redirect(flashUrl(path, kind, msg));
 
@@ -313,10 +313,11 @@ export async function checkoutAction(formData: FormData): Promise<void> {
     let authUrl = '';
     try {
         const base = await appUrl();
+        const back = await requestOrigin();
         const tx = await createPaymentLink({
             txRef: reference,
             amount: price.amount,
-            redirectUrl: `${base}/dashboard/billing/verify`,
+            redirectUrl: `${back}/dashboard/billing/verify`,
             customer: { email: account!.email, name: account!.name, phonenumber: account!.phone },
             title: 'Diner.ng',
             description: `${PLANS[plan as 'basic'].name} plan — ${spot.name}${price.firstCustomer ? ' (first customer discount)' : ''}`,

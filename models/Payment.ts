@@ -15,6 +15,7 @@ export interface IPayment {
     periodStart?: Date;
     periodEnd?: Date;
     paidAt?: Date;
+    checkedAt?: Date;
     createdAt: Date;
 }
 
@@ -32,7 +33,8 @@ const paymentSchema = new Schema<IPayment>(
         status: { type: String, enum: ['pending', 'success', 'failed'], default: 'pending' },
         periodStart: Date,
         periodEnd: Date,
-        paidAt: Date
+        paidAt: Date,
+        checkedAt: Date
     },
     { timestamps: true }
 );

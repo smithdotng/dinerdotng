@@ -10,7 +10,7 @@ import PlanBanner from '@/components/PlanBanner';
 import Stars from '@/components/Stars';
 
 export default async function OverviewPage() {
-    const { spot } = await requireOwnerSpot();
+    const { spot } = await requireOwnerSpot({ reconcile: true });
     const today = todayISO();
     const [itemCount, reviewCount, recent, upcoming, pendingCount, tableCount] = await Promise.all([
         MenuItem.countDocuments({ spot: spot._id }),

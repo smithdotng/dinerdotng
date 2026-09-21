@@ -9,7 +9,7 @@ import { User } from '@/models/User';
 import { Payment } from '@/models/Payment';
 import { isPlanKey, PLANS, PERIOD_DAYS } from '@/lib/plans';
 import { flashUrl, randomCode, str } from '@/lib/helpers';
-import { activatePayment } from '@/lib/subscription';
+import { activatePayment, reconcilePayment } from '@/lib/subscription';
 
 const back = (fd: FormData) => (str(fd, 'back').startsWith('/admin') ? str(fd, 'back') : '/admin/spots');
 
@@ -55,4 +55,24 @@ export async function toggleUserAction(id: string): Promise<void> {
         await u.save();
     }
     redirect(flashUrl('/admin/users', 'success', u ? `${u.name} ${u.isActive ? 'reactivated' : 'suspended'}.` : 'Updated.'));
+}
+
+/** Ask Flutterwave about a pending/failed payment and activate the plan if it was actually paid. */
+export async function recheckPaymentAction(id: string): Promise<void> {
+    await requireAdmin();
+    await connectDB();
+    const payment = await Payment.findById(id);
+    if (!payment) redirect(flashUrl('/admin/payments', 'error', 'Payment not found.'));
+    if (payment.provider !== 'flutterwave') redirect(flashUrl('/admin/payments', 'error', 'Only Flutterwave payments can be re-checked.'));
+    const result = await reconcilePayment(payment);
+    revalidatePath('/', 'layout');
+    const msg: Record<string, [string, 'success' | 'error']> = {
+        activated: [`Confirmed with Flutterwave — ${PLANS[payment.plan].name} plan activated.`, 'success'],
+        paid: ['Already confirmed.', 'success'],
+        pending: ['Flutterwave still shows this payment as pending.', 'error'],
+        failed: ['Flutterwave reports this payment as failed.', 'error'],
+        'not-found': ['Flutterwave has no completed transaction with this reference.', 'error']
+    };
+    const [text, kind] = msg[result];
+    redirect(flashUrl('/admin/payments', kind, text));
 }

@@ -21,12 +21,23 @@ export default function PlanBanner({ spot }: { spot: SpotLike }) {
             </div>
         );
     }
+    const sub = spot.subscription;
+    if (!spot.isPublished && sub?.status === 'active' && sub.currentPeriodEnd && new Date(sub.currentPeriodEnd) > new Date()) {
+        return (
+            <div className="plan-banner inactive">
+                <div>
+                    <h4><i className="fas fa-eye-slash me-2"></i>Your plan is paid, but your listing is hidden</h4>
+                    <div style={{ opacity: 0.92 }}>A Diner.ng admin has unpublished this spot. Please contact support to bring it back online.</div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className="plan-banner inactive">
             <div>
                 <h4><i className="fas fa-eye-slash me-2"></i>Your spot isn&apos;t live yet</h4>
                 <div style={{ opacity: 0.92 }}>
-                    Choose a plan to publish your listing and switch on your QR menu.
+                    Choose a plan to publish your listing and switch on your QR menu. Already paid? It can take a minute to confirm — refresh this page.
                     {promoEnabled() && <> First customers pay from <b>{naira(PLANS.basic.firstCustomerPrice)}</b>.</>}
                 </div>
             </div>

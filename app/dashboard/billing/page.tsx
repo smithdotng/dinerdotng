@@ -10,7 +10,7 @@ import PlanBanner from '@/components/PlanBanner';
 import { PlanFeatures } from '@/components/PlanCards';
 
 export default async function BillingPage({ searchParams }: { searchParams: Promise<{ plan?: string }> }) {
-    const { user, spot } = await requireOwnerSpot();
+    const { user, spot } = await requireOwnerSpot({ reconcile: true });
     const { plan } = await searchParams;
     const highlight = isPlanKey(plan) ? plan : null;
     const [account, payments] = await Promise.all([
