@@ -23,8 +23,16 @@ if (process.env.NODE_ENV === 'production' && !process.env.SESSION_SECRET && proc
     throw new Error('SESSION_SECRET environment variable is required in production (at least 32 characters).');
 }
 
+const SESSION_PASSWORD = (process.env.SESSION_SECRET || DEV_SESSION_SECRET).trim();
+if (SESSION_PASSWORD.length < 32) {
+    throw new Error(
+        `SESSION_SECRET is too short (${SESSION_PASSWORD.length} characters). It must be at least 32 characters — ` +
+            'set a long random value in your environment variables (e.g. Vercel › Settings › Environment Variables) and redeploy.'
+    );
+}
+
 export const sessionOptions: SessionOptions = {
-    password: process.env.SESSION_SECRET || DEV_SESSION_SECRET,
+    password: SESSION_PASSWORD,
     cookieName: 'dinerng_session',
     cookieOptions: {
         secure: process.env.NODE_ENV === 'production' && process.env.USE_HTTPS !== 'false',
