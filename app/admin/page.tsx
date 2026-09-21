@@ -5,6 +5,7 @@ import { User } from '@/models/User';
 import { Payment, type IPayment } from '@/models/Payment';
 import { Review } from '@/models/Review';
 import { Reservation } from '@/models/Reservation';
+import { Post } from '@/models/Post';
 import { liveFilter } from '@/lib/spot';
 import { PLANS } from '@/lib/plans';
 import { fmtDate, naira } from '@/lib/format';
@@ -15,7 +16,7 @@ export default async function AdminOverview() {
     const monthStart = new Date();
     monthStart.setDate(1);
     monthStart.setHours(0, 0, 0, 0);
-    const [owners, spots, liveSpots, sweet, revenue, reviews, reservations, recent] = await Promise.all([
+    const [owners, spots, liveSpots, sweet, revenue, reviews, reservations, recent, postsLive, postsDraft] = await Promise.all([
         User.countDocuments({ role: 'owner' }),
         Spot.countDocuments(),
         Spot.countDocuments(live),
@@ -23,7 +24,9 @@ export default async function AdminOverview() {
         Payment.aggregate<{ total: number }>([{ $match: { status: 'success', paidAt: { $gte: monthStart } } }, { $group: { _id: null, total: { $sum: '$amount' } } }]),
         Review.countDocuments(),
         Reservation.countDocuments(),
-        Payment.find({ status: 'success' }).sort({ paidAt: -1 }).limit(8).lean<IPayment[]>()
+        Payment.find({ status: 'success' }).sort({ paidAt: -1 }).limit(8).lean<IPayment[]>(),
+        Post.countDocuments({ status: 'published' }),
+        Post.countDocuments({ status: 'draft' })
     ]);
     const spotNames = Object.fromEntries((await Spot.find({ _id: { $in: recent.map((p) => p.spot) } }).select('name').lean()).map((s) => [String(s._id), s.name]));
 
@@ -54,6 +57,18 @@ export default async function AdminOverview() {
                         <h5>Activity</h5>
                         <div className="d-flex justify-content-between py-2 border-bottom"><span>Reviews</span><b>{reviews}</b></div>
                         <div className="d-flex justify-content-between py-2"><span>Reservations</span><b>{reservations}</b></div>
+                    </div>
+                    <div className="card-dn">
+                        <h5>Blog</h5>
+                        <div className="d-flex justify-content-between py-2 border-bottom"><span>Published</span><b>{postsLive}</b></div>
+                        <div className="d-flex justify-content-between py-2 mb-2"><span>Drafts</span><b>{postsDraft}</b></div>
+                        <div className="d-grid gap-2">
+                            <Link href="/admin/posts/new" className="btn-dn btn-sm-dn"><i className="fas fa-plus"></i> New article</Link>
+                            <div className="d-flex gap-2">
+                                <Link href="/admin/posts/new?type=review" className="btn-dn-outline btn-sm-dn flex-fill">Review</Link>
+                                <Link href="/admin/posts/new?type=promo" className="btn-dn-outline btn-sm-dn flex-fill">Promotion</Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

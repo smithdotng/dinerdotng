@@ -10,6 +10,7 @@ import { Review, refreshSpotRating } from '@/models/Review';
 import { Table } from '@/models/Table';
 import { Reservation } from '@/models/Reservation';
 import { Payment } from '@/models/Payment';
+import { Post } from '@/models/Post';
 import { IMAGES } from '@/lib/images';
 import { DAYS } from '@/lib/spot';
 import { slugify } from '@/lib/helpers';
@@ -194,6 +195,43 @@ async function main() {
         });
         console.log(`✓ ${spot.name} (${d.plan}) — /spots/${spot.slug}`);
     }
+    // Demo blog posts (fictional)
+    await Post.deleteMany({ authorName: 'Diner.ng Team (demo)' });
+    const bySlug = async (slug: string) => (await Spot.findOne({ slug }).select('_id'))?._id;
+    const demoPosts = [
+        {
+            title: '7 Abuja spots for the perfect Sunday brunch', type: 'article', featured: true, coverImage: IMAGES.food.breakfast,
+            tags: ['abuja', 'brunch', 'guides'], spot: null,
+            excerpt: 'From flat whites in Maitama to firewood jollof in Wuse 2 — where to eat when Sunday service ends.',
+            content: '## Why brunch is having a moment\n\nAbuja’s brunch scene has grown up. Here are our favourite tables right now.\n\n### 1. Kofi Corner Café, Maitama\nQuiet corners, **excellent avocado toast** and a flat white that holds its own.\n\n### 2. Ember & Pepper, Wuse 2\nIf your brunch needs *jollof*, this is the one.\n\n> Tip: book ahead on Diner.ng — Sunday tables go fast.\n\n[Explore more spots in Abuja](/explore?city=Abuja)'
+        },
+        {
+            title: 'Review: Ember & Pepper brings the grill to Wuse 2', type: 'review', rating: 4, coverImage: IMAGES.food.grill,
+            tags: ['abuja', 'grills', 'review'], spot: await bySlug('ember-and-pepper'),
+            verdict: 'Smoky, generous and fun — the party jollof alone is worth the trip.',
+            excerpt: 'We ate our way through the wood-fired menu at one of Abuja’s busiest new grills.',
+            content: '## The room\nWarm, loud and full of families on a Friday night.\n\n## The food\n- **Beef suya skewers** — properly spiced, tender.\n- **Smoky party jollof** — the star of the show.\n- **Whole grilled croaker** — share it.\n\n## The service\nFriendly and quick, though drinks lagged at peak time.\n\n## Should you go?\nYes. Book a table and order the jollof.'
+        },
+        {
+            title: 'Skyline Rooftop: 20% off cocktails every Thursday', type: 'promo', coverImage: IMAGES.food.cocktail,
+            tags: ['lagos', 'offers', 'nightlife'], spot: await bySlug('skyline-rooftop-lounge'),
+            promoCode: 'DINER20', validUntil: days(40), ctaLabel: 'See the menu',
+            excerpt: 'Show the code at the bar on Thursdays and take 20% off all signature cocktails.',
+            content: 'Thursdays just got better at **Skyline Rooftop Lounge** in Lekki Phase 1.\n\n- 20% off all signature cocktails\n- Every Thursday, 6pm till late\n- Show code **DINER20** at the bar\n\n*One redemption per guest per visit.*'
+        }
+    ];
+    for (const [i, dp] of demoPosts.entries()) {
+        await Post.create({
+            ...dp,
+            slug: slugify(dp.title),
+            status: 'published',
+            publishedAt: days(-(i * 4 + 1)),
+            authorName: 'Diner.ng Team (demo)',
+            ctaUrl: dp.spot ? `/spots/${dp.type === 'promo' ? 'skyline-rooftop-lounge' : 'ember-and-pepper'}` : undefined
+        });
+    }
+    console.log(`✓ ${demoPosts.length} demo blog posts`);
+
     console.log('\nDemo owners log in with password: demo-password');
     await mongoose.disconnect();
 }

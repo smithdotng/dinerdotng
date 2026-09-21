@@ -7,6 +7,8 @@ import { promoEnabled, PLANS } from '@/lib/plans';
 import { naira } from '@/lib/format';
 import SpotCard from '@/components/SpotCard';
 import PlanCards from '@/components/PlanCards';
+import PostCard from '@/components/PostCard';
+import { Post, publishedFilter, type IPost } from '@/models/Post';
 
 const STEPS = [
     ['fa-magnifying-glass-location', 'Discover', 'Browse restaurants, hotels and hotspots near you with real photos and ratings.'],
@@ -24,6 +26,7 @@ export default async function HomePage() {
         Spot.distinct('city', live),
         Spot.aggregate<{ _id: string; n: number }>([{ $match: live }, { $group: { _id: '$type', n: { $sum: 1 } } }])
     ]);
+    const posts = await Post.find(publishedFilter()).sort({ featured: -1, publishedAt: -1 }).limit(3).lean<IPost[]>();
     const typeCounts = Object.fromEntries(counts.map((c) => [c._id, c.n]));
     const promo = promoEnabled();
 
@@ -158,6 +161,21 @@ export default async function HomePage() {
                     )}
                 </div>
             </section>
+
+            {/* BLOG */}
+            {posts.length > 0 && (
+                <section className="dn-section tight" style={{ paddingTop: 0 }}>
+                    <div className="container">
+                        <div className="head-row">
+                            <div><span className="section-kicker" style={{ marginLeft: -8 }}>From the blog</span><h2>Guides, reviews &amp; hot offers</h2></div>
+                            <Link href="/blog" className="btn-dn-outline btn-sm-dn">Read the blog <i className="fas fa-arrow-right"></i></Link>
+                        </div>
+                        <div className="row g-4">
+                            {posts.map((p) => <div key={String(p._id)} className="col-md-4"><PostCard p={p} /></div>)}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* FOR OWNERS */}
             <section className="dn-section bg-white">

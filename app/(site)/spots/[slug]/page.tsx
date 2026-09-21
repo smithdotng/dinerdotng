@@ -13,6 +13,7 @@ import { fmtTime, lagosDayName, naira, telLink, timeAgo, timeSlots, todayISO, wa
 import { reserveTableAction, submitReviewAction } from '@/actions/public';
 import Stars, { StarInput } from '@/components/Stars';
 import MenuTabs from '@/components/MenuTabs';
+import { Post, POST_TYPES, publishedFilter, type IPost } from '@/models/Post';
 
 type Params = Promise<{ slug: string }>;
 
@@ -44,10 +45,11 @@ export default async function SpotPage({ params }: { params: Params }) {
     const { spot, preview } = found;
     if (!preview) await Spot.updateOne({ _id: spot._id }, { $inc: { views: 1 } });
 
-    const [items, reviews, areas] = await Promise.all([
+    const [items, reviews, areas, posts] = await Promise.all([
         MenuItem.find({ spot: spot._id, available: true }).sort({ order: 1, createdAt: 1 }).lean<IMenuItem[]>(),
         Review.find({ spot: spot._id, status: 'published' }).sort({ createdAt: -1 }).limit(30).lean<IReview[]>(),
-        Table.distinct('area', { spot: spot._id, active: true })
+        Table.distinct('area', { spot: spot._id, active: true }),
+        Post.find({ ...publishedFilter(), spot: spot._id }).sort({ publishedAt: -1 }).limit(4).lean<IPost[]>()
     ]);
     const categories = (spot.menuCategories.length ? spot.menuCategories : [...new Set(items.map((i) => i.category))]).filter((c) => items.some((i) => i.category === c));
     const breakdown = [5, 4, 3, 2, 1].map((s) => ({ s, n: reviews.filter((r) => r.rating === s).length }));
@@ -265,6 +267,18 @@ export default async function SpotPage({ params }: { params: Params }) {
                                             <div className="col-12"><button className="btn-dn btn-block">Reserve my table</button></div>
                                         </div>
                                     </form>
+                                </div>
+                            )}
+
+                            {posts.length > 0 && (
+                                <div className="panel">
+                                    <h5 className="mb-3"><i className="fas fa-pen-nib me-2 text-primary-dn"></i>On the Diner.ng blog</h5>
+                                    {posts.map((p) => (
+                                        <Link key={String(p._id)} href={`/blog/${p.slug}`} className="d-flex gap-2 py-2 text-reset" style={{ borderBottom: '1px dashed var(--dn-line)' }}>
+                                            <i className={`fas ${POST_TYPES[p.type].icon} text-primary-dn mt-1`}></i>
+                                            <span><b style={{ color: 'var(--dn-cocoa)' }}>{p.title}</b><br /><small className="text-muted-dn">{POST_TYPES[p.type].label}{p.type === 'review' && p.rating ? ` · ${p.rating}/5` : ''}</small></span>
+                                        </Link>
+                                    ))}
                                 </div>
                             )}
 

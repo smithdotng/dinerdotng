@@ -28,6 +28,7 @@ export default function Footer({ promo }: { promo: boolean }) {
                             <li><Link href="/explore?type=lounge">Lounges &amp; bars</Link></li>
                             <li><Link href="/explore?type=event">Event hotspots</Link></li>
                             <li><Link href="/explore?bookable=1">Book a table</Link></li>
+                            <li><Link href="/blog">Blog &amp; offers</Link></li>
                         </ul>
                     </div>
                     <div className="col-6 col-lg-2">

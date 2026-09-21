@@ -19,7 +19,7 @@ build/
 next-env.d.ts
 
 # Local photo uploads (dev storage)
-uploads/
+/uploads/
 
 # Logs
 *.log

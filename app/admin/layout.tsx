@@ -24,6 +24,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                             { href: '/admin/spots', label: 'Spots', icon: 'fa-store' },
                             { href: '/admin/users', label: 'Accounts', icon: 'fa-users' },
                             { href: '/admin/payments', label: 'Payments', icon: 'fa-receipt' },
+                            { href: '/admin/posts', label: 'Blog', icon: 'fa-pen-nib' },
                             { href: '/', label: 'Public site', icon: 'fa-globe', exact: true },
                             { href: '/logout', label: 'Log out', icon: 'fa-right-from-bracket' }
                         ]

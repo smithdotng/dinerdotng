@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
 
-const HERO_PATHS = /^\/($|explore$|pricing$|for-business$|spots\/[^/]+$)/;
+const HERO_PATHS = /^\/($|explore$|pricing$|for-business$|blog$|blog\/[^/]+$|spots\/[^/]+$)/;
 
 export default function HeaderClient({ user }: { user: { role: string } | null }) {
     const pathname = usePathname();
@@ -22,6 +22,7 @@ export default function HeaderClient({ user }: { user: { role: string } | null }
         ['/explore?type=restaurant', 'Restaurants'],
         ['/explore?type=hotel', 'Hotels'],
         ['/explore?type=event', 'Hotspots'],
+        ['/blog', 'Blog'],
         ['/for-business', 'For business'],
         ['/pricing', 'Pricing']
     ];
