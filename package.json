@@ -1,0 +1,38 @@
+{
+  "name": "dinerdotng",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Diner.ng \u2014 listings, QR menus, guest reviews and table reservations for Nigerian restaurants, hotels and event hotspots",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx seed/seed.ts",
+    "create-admin": "tsx seed/createAdmin.ts"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^16.4.5",
+    "iron-session": "^8.0.4",
+    "moment": "^2.30.1",
+    "mongoose": "^8.23.0",
+    "next": "^15.5.4",
+    "qrcode": "^1.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}
