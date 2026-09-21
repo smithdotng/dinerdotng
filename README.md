@@ -93,6 +93,8 @@ seed/             createAdmin + demo seed
    | `FLW_WEBHOOK_HASH` | the secret hash you set in Flutterwave › Settings › Webhooks |
    | `FIRST_CUSTOMER_PROMO` | `true` (or `false` to end the launch discount) |
 
+   **Don't add `NODE_ENV`** (Vercel sets it) and don't paste your local `.env` wholesale — it contains development-only values.
+
 4. **Photo storage** — in the Vercel project open **Storage › Create › Blob**, connect it to the project; `BLOB_READ_WRITE_TOKEN` is added automatically. Redeploy.
 5. **Deploy**, then create your admin account from your machine against the production database:
    ```bash

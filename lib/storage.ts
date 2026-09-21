@@ -41,7 +41,7 @@ export async function saveImage(file: File): Promise<string> {
             .update(`folder=${folder}&timestamp=${timestamp}${process.env.CLOUDINARY_API_SECRET}`)
             .digest('hex');
         const body = new FormData();
-        body.append('file', new Blob([buf], { type: file.type }), 'upload' + ext);
+        body.append('file', new Blob([new Uint8Array(buf)], { type: file.type }), 'upload' + ext);
         body.append('api_key', process.env.CLOUDINARY_API_KEY!);
         body.append('timestamp', String(timestamp));
         body.append('folder', folder);

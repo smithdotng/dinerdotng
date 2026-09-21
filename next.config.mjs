@@ -1,5 +1,16 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // Resolve the "@/..." import alias explicitly (mirrors tsconfig "paths"),
+    // so builds never depend on the tsconfig being picked up.
+    webpack(config) {
+        config.resolve.alias = { ...(config.resolve.alias || {}), '@': root };
+        return config;
+    },
     reactStrictMode: true,
     eslint: {
         ignoreDuringBuilds: true
