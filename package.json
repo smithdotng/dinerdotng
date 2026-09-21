@@ -2,14 +2,15 @@
   "name": "dinerdotng",
   "version": "1.0.0",
   "private": true,
-  "description": "Diner.ng — listings, QR menus, guest reviews and table reservations for Nigerian restaurants, hotels and event hotspots",
+  "description": "Diner.ng \u2014 listings, QR menus, guest reviews and table reservations for Nigerian restaurants, hotels and event hotspots",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "seed": "tsx seed/seed.ts",
-    "create-admin": "tsx seed/createAdmin.ts"
+    "create-admin": "tsx seed/createAdmin.ts",
+    "post:launch": "tsx seed/publishLaunchPost.ts"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.0",

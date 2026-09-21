@@ -1,11 +1,16 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { IMAGES } from '@/lib/images';
 import { PLANS, promoEnabled } from '@/lib/plans';
 import { naira } from '@/lib/format';
 import PlanCards from '@/components/PlanCards';
 
-export const metadata: Metadata = { title: 'Pricing — list your spot' };
+export const metadata: Metadata = pageMeta({
+    title: 'Pricing — list your spot',
+    description: 'List your restaurant, lounge, hotel or event space on Diner.ng. Basic ₦14,999/month or Sweet ₦22,999/month — first customers start from ₦2,999.',
+    path: '/pricing'
+});
 
 const ROWS: [string, boolean, boolean][] = [
     ['Listing on Diner.ng (photos, hours, location)', true, true],

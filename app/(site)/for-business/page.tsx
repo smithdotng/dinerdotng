@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { IMAGES } from '@/lib/images';
 import { PLANS, promoEnabled } from '@/lib/plans';
 import { naira } from '@/lib/format';
 import PlanCards from '@/components/PlanCards';
 
-export const metadata: Metadata = { title: 'For restaurants, hotels & event hotspots' };
+export const metadata: Metadata = pageMeta({
+    title: 'For restaurants, hotels & event hotspots',
+    description: 'Your launchpad on Diner.ng: a beautiful listing, a QR menu you can update any time, guest reviews and table bookings.',
+    path: '/for-business',
+    image: IMAGES.places.bar
+});
 
 export default function BusinessPage() {
     const promo = promoEnabled();

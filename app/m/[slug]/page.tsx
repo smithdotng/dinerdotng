@@ -14,6 +14,7 @@ import { StarInput } from '@/components/Stars';
 import QrMenuClient from '@/components/QrMenuClient';
 import Flash from '@/components/Flash';
 import Enhancer from '@/components/Enhancer';
+import { pageMeta } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,7 +31,14 @@ async function load(slug: string) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
     const f = await load((await params).slug);
-    return { title: f ? `${f.spot.name} — Menu` : 'Menu unavailable' };
+    if (!f) return { title: 'Menu unavailable', robots: { index: false } };
+    return pageMeta({
+        title: `${f.spot.name} — Menu`,
+        description: `See the full menu and prices at ${f.spot.name}${locationOf(f.spot) ? `, ${locationOf(f.spot)}` : ''}. Scan, order and rate your experience on Diner.ng.`,
+        path: `/m/${f.spot.slug}`,
+        image: f.spot.coverImage || IMAGES.typeCover[f.spot.type],
+        noindex: f.preview
+    });
 }
 
 export default async function QrMenuPage({ params, searchParams }: { params: Params; searchParams: Promise<{ table?: string }> }) {

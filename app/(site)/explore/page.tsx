@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { connectDB } from '@/lib/db';
 import { Spot, type ISpot } from '@/models/Spot';
 import { isFeatured, isSpotType, liveFilter, SPOT_TYPES, SPOT_TYPE_KEYS } from '@/lib/spot';
@@ -7,9 +8,20 @@ import { escapeRegex } from '@/lib/helpers';
 import { IMAGES } from '@/lib/images';
 import SpotCard from '@/components/SpotCard';
 
-export const metadata: Metadata = { title: 'Explore spots' };
-
 type SP = Promise<{ q?: string; city?: string; type?: string; sort?: string; bookable?: string }>;
+
+export async function generateMetadata({ searchParams }: { searchParams: SP }): Promise<Metadata> {
+    const { type = '', city = '' } = await searchParams;
+    const what = isSpotType(type) ? `${SPOT_TYPES[type].label}s` : 'Restaurants, lounges & hotspots';
+    const where = city ? ` in ${city}` : ' in Nigeria';
+    const qs = new URLSearchParams({ ...(isSpotType(type) ? { type } : {}), ...(city ? { city } : {}) }).toString();
+    return pageMeta({
+        title: `${what}${where}`,
+        description: `Browse ${what.toLowerCase()}${where} on Diner.ng — see menus and prices, check ratings and book a table.`,
+        path: `/explore${qs ? `?${qs}` : ''}`,
+        image: isSpotType(type) ? IMAGES.categories[type] : undefined
+    });
+}
 
 export default async function ExplorePage({ searchParams }: { searchParams: SP }) {
     const { q = '', city = '', type = '', sort = 'featured', bookable = '' } = await searchParams;

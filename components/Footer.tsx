@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Logo from './Logo';
+import InstallAppButton from './InstallAppButton';
 import { PLANS } from '@/lib/plans';
 import { naira } from '@/lib/format';
 
@@ -55,7 +56,10 @@ export default function Footer({ promo }: { promo: boolean }) {
                                 <p>Plans from <b style={{ color: '#fff' }}>{naira(PLANS.basic.price)}</b> per month.</p>
                             </>
                         )}
-                        <Link href="/pricing" className="btn-dn btn-sm-dn">See plans</Link>
+                        <div className="d-flex gap-2 flex-wrap align-items-center">
+                            <Link href="/pricing" className="btn-dn btn-sm-dn">See plans</Link>
+                            <InstallAppButton className="btn-dn-ghost btn-sm-dn" />
+                        </div>
                     </div>
                 </div>
                 <div className="bottom d-flex flex-wrap justify-content-between gap-2">

@@ -13,6 +13,7 @@ import { fmtTime, lagosDayName, naira, telLink, timeAgo, timeSlots, todayISO, wa
 import { reserveTableAction, submitReviewAction } from '@/actions/public';
 import Stars, { StarInput } from '@/components/Stars';
 import MenuTabs from '@/components/MenuTabs';
+import { pageMeta } from '@/lib/seo';
 import { Post, POST_TYPES, publishedFilter, type IPost } from '@/models/Post';
 
 type Params = Promise<{ slug: string }>;
@@ -30,12 +31,17 @@ async function load(slug: string) {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
     const found = await load((await params).slug);
     if (!found) return { title: 'Spot not found' };
-    const { spot } = found;
-    return {
-        title: `${spot.name}${locationOf(spot) ? ` — ${locationOf(spot)}` : ''}`,
-        description: spot.tagline || spot.description,
-        openGraph: { images: [spot.coverImage || IMAGES.typeCover[spot.type]] }
-    };
+    const { spot, preview } = found;
+    const loc = locationOf(spot);
+    const rating = spot.ratingCount ? ` Rated ${spot.ratingAvg.toFixed(1)}/5 by ${spot.ratingCount} guests.` : '';
+    return pageMeta({
+        title: `${spot.name}${loc ? ` — ${loc}` : ''}`,
+        description: `${spot.tagline || spot.description || `${typeLabel(spot)} on Diner.ng`}.${rating} See the menu, photos and opening hours${canTakeReservations(spot) ? ', and book a table' : ''}.`.replace('..', '.'),
+        path: `/spots/${spot.slug}`,
+        image: spot.coverImage || IMAGES.typeCover[spot.type],
+        imageAlt: spot.name,
+        noindex: preview
+    });
 }
 
 export default async function SpotPage({ params }: { params: Params }) {

@@ -13,6 +13,7 @@ import Stars from '@/components/Stars';
 import SpotCard from '@/components/SpotCard';
 import PostCard from '@/components/PostCard';
 import { CopyButton } from '@/components/ClientBits';
+import { pageMeta } from '@/lib/seo';
 
 type Params = Promise<{ slug: string }>;
 
@@ -29,12 +30,18 @@ async function load(slug: string) {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
     const f = await load((await params).slug);
     if (!f) return { title: 'Post not found' };
-    const { post } = f;
-    return {
+    const { post, preview } = f;
+    return pageMeta({
         title: post.title,
         description: post.excerpt,
-        openGraph: { type: 'article', title: post.title, description: post.excerpt, images: post.coverImage ? [post.coverImage] : undefined, publishedTime: post.publishedAt ? new Date(post.publishedAt).toISOString() : undefined }
-    };
+        path: `/blog/${post.slug}`,
+        image: post.coverImage,
+        type: 'article',
+        publishedTime: post.publishedAt ? new Date(post.publishedAt).toISOString() : undefined,
+        authors: post.authorName ? [post.authorName] : undefined,
+        tags: post.tags,
+        noindex: preview
+    });
 }
 
 export default async function BlogPost({ params }: { params: Params }) {

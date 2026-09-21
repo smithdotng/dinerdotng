@@ -7,6 +7,7 @@ import { PLANS, promoEnabled } from '@/lib/plans';
 import { naira } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
+export const metadata = { robots: { index: false, follow: true } };
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
     return (

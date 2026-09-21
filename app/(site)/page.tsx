@@ -7,8 +7,14 @@ import { promoEnabled, PLANS } from '@/lib/plans';
 import { naira } from '@/lib/format';
 import SpotCard from '@/components/SpotCard';
 import PlanCards from '@/components/PlanCards';
+import { pageMeta } from '@/lib/seo';
 import PostCard from '@/components/PostCard';
 import { Post, publishedFilter, type IPost } from '@/models/Post';
+
+export const metadata = {
+    ...pageMeta({ title: 'Diner.ng — Nigeria’s fun spots, one table away', path: '/' }),
+    title: { absolute: 'Diner.ng — Nigeria’s fun spots, one table away' }
+};
 
 const STEPS = [
     ['fa-magnifying-glass-location', 'Discover', 'Browse restaurants, hotels and hotspots near you with real photos and ratings.'],

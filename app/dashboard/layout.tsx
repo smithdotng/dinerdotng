@@ -10,7 +10,7 @@ import Enhancer from '@/components/Enhancer';
 import DashShell, { type NavGroup } from '@/components/DashSidebar';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Dashboard' };
+export const metadata = { title: 'Dashboard', robots: { index: false, follow: false } };
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
     const { user, spot } = await requireOwnerSpot();

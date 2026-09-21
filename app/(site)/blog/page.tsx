@@ -8,11 +8,14 @@ import { escapeRegex } from '@/lib/helpers';
 import { fmtDate } from '@/lib/format';
 import { readingTime } from '@/lib/markdown';
 import PostCard from '@/components/PostCard';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
     title: 'Blog — food guides, reviews & offers',
-    description: 'Restaurant reviews, food guides and the latest offers from Nigeria’s best restaurants, hotels and hotspots.'
-};
+    description: 'Restaurant reviews, food guides and the latest offers from Nigeria’s best restaurants, lounges, hotels and hotspots.',
+    path: '/blog',
+    image: IMAGES.food.family
+});
 
 const PER_PAGE = 12;
 
