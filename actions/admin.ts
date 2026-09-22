@@ -10,6 +10,8 @@ import { Payment } from '@/models/Payment';
 import { isPlanKey, PLANS, PERIOD_DAYS } from '@/lib/plans';
 import { flashUrl, randomCode, str } from '@/lib/helpers';
 import { activatePayment, reconcilePayment } from '@/lib/subscription';
+import { notifySubscription } from '@/lib/notify';
+import { sendEmail, mailProvider } from '@/lib/mailer';
 
 const back = (fd: FormData) => (str(fd, 'back').startsWith('/admin') ? str(fd, 'back') : '/admin/spots');
 
@@ -21,6 +23,7 @@ export async function toggleSpotFlagAction(id: string, flag: 'featuredOverride' 
         spot[flag] = !spot[flag];
         await spot.save();
         revalidatePath('/', 'layout');
+        if (flag === 'isPublished') await notifySubscription(spot._id, spot.isPublished ? 'restored' : 'hidden');
     }
     redirect(flashUrl(back(formData), 'success', `${spot?.name ?? 'Spot'} updated.`));
 }
@@ -75,4 +78,15 @@ export async function recheckPaymentAction(id: string): Promise<void> {
     };
     const [text, kind] = msg[result];
     redirect(flashUrl('/admin/payments', kind, text));
+}
+
+/** Send one of the sample emails to the signed-in admin, to check branding and deliverability. */
+export async function sendTestEmailAction(formData: FormData): Promise<void> {
+    const me = await requireAdmin();
+    const { sampleEmails } = await import('@/app/admin/emails/samples');
+    const key = str(formData, 'key');
+    const e = sampleEmails(me.firstName).find((x) => x.key === key);
+    if (!e) redirect('/admin/emails');
+    const ok = await sendEmail({ to: me.email, ...e.email, subject: `[Test] ${e.email.subject}` });
+    redirect(flashUrl(`/admin/emails?t=${key}`, ok ? 'success' : 'error', ok ? (mailProvider() === 'console' ? 'Printed to the server log (no email provider configured).' : `Test sent to ${me.email}.`) : 'Sending failed — check your email settings and the server log.'));
 }

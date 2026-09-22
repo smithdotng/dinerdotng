@@ -17,7 +17,7 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
     return (
         <>
             <Link href="/" className="dn-logo d-lg-none mb-4"><Logo height={38} /></Link>
-            <span className="section-kicker" style={{ marginLeft: -8 }}>Step 1 of 3</span>
+            <span className="section-kicker" style={{ marginLeft: -8 }}>Step 1 of 4</span>
             <h1>List your spot</h1>
             <p className="text-muted-dn mb-4">Create your owner account. You&apos;ll set up your spot and menu next.</p>
             <form action={registerAction}>

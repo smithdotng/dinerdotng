@@ -5,7 +5,9 @@ import { z } from 'zod';
 import { connectDB } from '@/lib/db';
 import { User } from '@/models/User';
 import { Spot } from '@/models/Spot';
-import { getSession, homeFor } from '@/lib/session';
+import { getSession, homeFor, requireAuth } from '@/lib/session';
+import { sendVerificationEmail } from '@/lib/notify';
+import { requestOrigin } from '@/lib/appUrl';
 import { enforceRateLimit, RATE_LIMIT_MESSAGE } from '@/lib/rateLimit';
 import { isPlanKey } from '@/lib/plans';
 import { flashUrl, str, uniqueSlug } from '@/lib/helpers';
@@ -40,13 +42,14 @@ export async function registerAction(formData: FormData): Promise<void> {
 
     await connectDB();
     if (await User.exists({ email: data.email.toLowerCase() })) fail(back, 'An account with that email already exists. Try logging in.');
-    const user = await User.create({ name: data.name, email: data.email, phone: data.phone, password: data.password });
+    const user = await User.create({ name: data.name, email: data.email, phone: data.phone, password: data.password, emailVerified: false });
 
     const session = await getSession();
-    session.user = { id: user._id.toString(), name: user.name, firstName: user.name.split(' ')[0], email: user.email, role: user.role };
+    session.user = { id: user._id.toString(), name: user.name, firstName: user.name.split(' ')[0], email: user.email, role: user.role, unverified: true };
     session.intendedPlan = plan;
     await session.save();
-    redirect(flashUrl('/onboarding', 'success', `Welcome to Diner.ng, ${user.name.split(' ')[0]}! Let's set up your spot.`));
+    const sent = await sendVerificationEmail(user._id, await requestOrigin());
+    redirect(sent ? '/verify-email' : flashUrl('/verify-email', 'error', "We couldn't send the confirmation email just now. Tap “Resend” to try again."));
 }
 
 export async function loginAction(formData: FormData): Promise<void> {
@@ -63,7 +66,9 @@ export async function loginAction(formData: FormData): Promise<void> {
 
     const session = await getSession();
     session.user = { id: user!._id.toString(), name: user!.name, firstName: user!.name.split(' ')[0], email: user!.email, role: user!.role };
+    if (user!.emailVerified === false) session.user.unverified = true;
     await session.save();
+    if (user!.emailVerified === false) redirect('/verify-email');
     const next = str(formData, 'next');
     redirect(next.startsWith('/') && !next.startsWith('//') ? next : homeFor(user!.role));
 }
@@ -78,6 +83,7 @@ export async function logoutAction(): Promise<void> {
 export async function createSpotAction(formData: FormData): Promise<void> {
     const session = await getSession();
     if (!session.user) redirect('/login');
+    if (session.user.unverified) redirect('/verify-email');
     await connectDB();
     if (await Spot.exists({ owner: session.user.id })) redirect('/dashboard');
 
@@ -104,4 +110,16 @@ export async function createSpotAction(formData: FormData): Promise<void> {
     session.intendedPlan = undefined;
     await session.save();
     redirect(flashUrl(`/dashboard/billing?plan=${plan}`, 'success', `${name} is set up! Choose a plan to go live.`));
+}
+
+/** Send a fresh confirmation link to the signed-in, unconfirmed account. */
+export async function resendVerificationAction(): Promise<void> {
+    const me = await requireAuth();
+    if (!me.unverified) redirect(homeFor(me.role));
+    if (!(await enforceRateLimit('verify-resend', 5))) fail('/verify-email', RATE_LIMIT_MESSAGE);
+    await connectDB();
+    const user = await User.findById(me.id).select('verifySentAt emailVerified');
+    if (user?.verifySentAt && Date.now() - user.verifySentAt.getTime() < 60 * 1000) fail('/verify-email', 'We just sent one — please wait a minute before asking again.');
+    const sent = await sendVerificationEmail(me.id, await requestOrigin());
+    redirect(flashUrl('/verify-email', sent ? 'success' : 'error', sent ? `A fresh link is on its way to ${me.email}.` : "We couldn't send the email just now. Please try again shortly."));
 }

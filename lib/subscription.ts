@@ -3,6 +3,8 @@ import { User } from '@/models/User';
 import { Payment, type IPayment } from '@/models/Payment';
 import type { HydratedDocument } from 'mongoose';
 import { PERIOD_DAYS } from '@/lib/plans';
+import { notifyPayment } from '@/lib/notify';
+import type { SubscriptionEvent } from '@/lib/emails';
 import { verifyByReference, verifyTransaction, flutterwaveEnabled, type FlwTransaction } from '@/lib/flutterwave';
 
 /** Mark a payment successful and extend/start the spot's subscription. */
@@ -18,11 +20,18 @@ export async function activatePayment(payment: HydratedDocument<IPayment>) {
     // Renewing the same plan extends the period; switching plans starts a fresh 30 days today.
     const start = stillActive && s.plan === payment.plan ? (s.currentPeriodEnd as Date) : now;
     const end = new Date(start.getTime() + PERIOD_DAYS * 24 * 60 * 60 * 1000);
-    spot.subscription = { plan: payment.plan, status: 'active', currentPeriodEnd: end, startedAt: s.startedAt || now };
+    const wasLive = !!stillActive;
+    const event: SubscriptionEvent | null = !wasLive ? 'activated' : s.plan === payment.plan ? null : payment.plan === 'sweet' ? 'upgraded' : 'downgraded';
+    spot.subscription = { plan: payment.plan, status: 'active', currentPeriodEnd: end, startedAt: s.startedAt || now, reminderSentFor: null };
     await spot.save();
     await Payment.updateOne({ _id: payment._id }, { periodStart: start, periodEnd: end, paidAt: now });
     Object.assign(payment, { status: 'success', paidAt: now, periodStart: start, periodEnd: end });
     await User.updateOne({ _id: payment.user }, { hasPaid: true });
+    try {
+        await notifyPayment(payment, event); // receipt + status change email; never blocks activation
+    } catch (e) {
+        console.error('[email] payment notification failed', e);
+    }
     return spot;
 }
 

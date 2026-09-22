@@ -11,6 +11,12 @@ export interface IUserFields {
     hasPaid: boolean; // false => eligible for the first-customer discount
     isActive: boolean;
     lastLogin?: Date;
+    /** false = must confirm email before using the dashboard. Missing on accounts created before verification existed (treated as verified). */
+    emailVerified?: boolean;
+    emailVerifiedAt?: Date;
+    verifyTokenHash?: string;
+    verifyTokenExpires?: Date;
+    verifySentAt?: Date;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -28,7 +34,12 @@ const userSchema = new Schema<IUserFields, Model<IUserFields, object, IUserMetho
         role: { type: String, enum: ['owner', 'admin'], default: 'owner' },
         hasPaid: { type: Boolean, default: false },
         isActive: { type: Boolean, default: true },
-        lastLogin: Date
+        lastLogin: Date,
+        emailVerified: Boolean,
+        emailVerifiedAt: Date,
+        verifyTokenHash: { type: String, index: true, sparse: true },
+        verifyTokenExpires: Date,
+        verifySentAt: Date
     },
     { timestamps: true }
 );

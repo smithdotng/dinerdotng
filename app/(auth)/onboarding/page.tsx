@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { requireAuth } from '@/lib/session';
+import { requireVerified } from '@/lib/session';
 import { connectDB } from '@/lib/db';
 import { Spot } from '@/models/Spot';
 import { SPOT_TYPES, SPOT_TYPE_KEYS } from '@/lib/spot';
@@ -8,12 +8,12 @@ import { createSpotAction } from '@/actions/auth';
 export const metadata = { title: 'Set up your spot' };
 
 export default async function OnboardingPage() {
-    const user = await requireAuth();
+    const user = await requireVerified();
     await connectDB();
     if (await Spot.exists({ owner: user.id })) redirect('/dashboard');
     return (
         <>
-            <span className="section-kicker" style={{ marginLeft: -8 }}>Step 2 of 3</span>
+            <span className="section-kicker" style={{ marginLeft: -8 }}>Step 3 of 4</span>
             <h1>Tell us about your spot</h1>
             <p className="text-muted-dn mb-4">You can add photos, your menu and more details from your dashboard.</p>
             <form action={createSpotAction}>

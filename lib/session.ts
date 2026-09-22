@@ -10,6 +10,8 @@ export interface SessionUser {
     firstName: string;
     email: string;
     role: UserRole;
+    /** Set while the account's email address is still unconfirmed. */
+    unverified?: boolean;
 }
 
 export interface SessionData {
@@ -55,6 +57,13 @@ export async function getCurrentUser(): Promise<SessionUser | null> {
 export async function requireAuth(): Promise<SessionUser> {
     const user = await getCurrentUser();
     if (!user) redirect('/login?error=' + encodeURIComponent('Please log in to continue.'));
+    return user;
+}
+
+/** Signed-in AND email confirmed. Unconfirmed accounts are sent to /verify-email. */
+export async function requireVerified(): Promise<SessionUser> {
+    const user = await requireAuth();
+    if (user.unverified) redirect('/verify-email');
     return user;
 }
 

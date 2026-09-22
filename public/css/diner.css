@@ -530,3 +530,11 @@ img { max-width: 100%; }
 .promo-box.expired { filter: grayscale(1); opacity: .75; }
 .promo-code { font-size: 22px; font-weight: 800; letter-spacing: 3px; color: var(--dn-primary-dark); background: #fff; padding: 6px 16px; border-radius: 12px; border: 1px solid var(--dn-line); }
 @media (max-width: 767px) { .post-body { padding: 22px; font-size: 16px; } .post-lead .inner { left: 20px; right: 20px; bottom: 20px; } }
+
+/* ---------- Email verification ---------- */
+.verify-hero { width: 72px; height: 72px; border-radius: 22px; display: grid; place-items: center; margin: 14px 0 18px; font-size: 30px; color: #fff; background: linear-gradient(135deg, #C2410C, #E8590C 45%, #F59F00); box-shadow: 0 12px 28px rgba(232, 89, 12, .28); animation: dn-float 3.2s ease-in-out infinite; }
+.verify-tips { list-style: none; padding: 0; }
+.verify-tips li { display: flex; gap: 10px; align-items: center; padding: 4px 0; }
+.verify-tips i { color: var(--dn-primary, #E8590C); width: 16px; }
+@keyframes dn-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) { .verify-hero { animation: none; } }

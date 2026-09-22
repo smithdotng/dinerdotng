@@ -29,7 +29,7 @@ export interface ISpot {
     ratingCount: number;
     views: number;
     menuScans: number;
-    subscription: { plan: 'basic' | 'sweet' | null; status: 'inactive' | 'active' | 'expired'; currentPeriodEnd?: Date | null; startedAt?: Date | null };
+    subscription: { plan: 'basic' | 'sweet' | null; status: 'inactive' | 'active' | 'expired'; currentPeriodEnd?: Date | null; startedAt?: Date | null; reminderSentFor?: Date | null };
     reservations: { enabled: boolean; openTime: string; closeTime: string; slotMinutes: number; maxPartySize: number; note?: string };
     featuredOverride: boolean;
     isPublished: boolean;
@@ -69,7 +69,8 @@ const spotSchema = new Schema<ISpot>(
             plan: { type: String, enum: ['basic', 'sweet', null], default: null },
             status: { type: String, enum: ['inactive', 'active', 'expired'], default: 'inactive' },
             currentPeriodEnd: Date,
-            startedAt: Date
+            startedAt: Date,
+            reminderSentFor: Date
         },
         reservations: {
             enabled: { type: Boolean, default: true },

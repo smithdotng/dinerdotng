@@ -53,6 +53,15 @@ Payments use **Flutterwave Standard** (hosted checkout: card, bank transfer, USS
 
 Set `APP_URL` to your live domain so redirects and QR codes use it.
 
+### Emails
+New owners must confirm their email address before they can set up a spot (the link is valid for 24 hours and can be resent). The app also sends a branded **welcome** email once the address is confirmed, a **payment receipt** for every payment, and **plan status** emails (live, upgraded/changed, ending in 3 days, expired, hidden/restored by an admin).
+
+1. Create a free [Resend](https://resend.com) account, verify your domain (e.g. `diner.ng`) and put the API key in `RESEND_API_KEY` — or fill in the `SMTP_*` variables for any SMTP provider.
+2. Set `MAIL_FROM`, e.g. `Diner.ng <hello@diner.ng>`, and `APP_URL` so links and the logo point at your live site.
+3. Set `CRON_SECRET` on Vercel. The daily cron in `vercel.json` (08:00 Lagos time) sends "ending soon" reminders and marks lapsed plans as expired.
+
+Admins can preview every email and send themselves a test from **Admin › Emails**. Without an email provider, messages are printed to the server log. Accounts created before verification existed are treated as verified.
+
 ### Photo uploads
 Photos are resized in the browser (max 1600px) before upload, then stored in:
 1. **Vercel Blob** when `BLOB_READ_WRITE_TOKEN` is set (recommended on Vercel),

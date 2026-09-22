@@ -2,7 +2,7 @@
   "name": "dinerdotng",
   "version": "1.0.0",
   "private": true,
-  "description": "Diner.ng \u2014 listings, QR menus, guest reviews and table reservations for Nigerian restaurants, hotels and event hotspots",
+  "description": "Diner.ng — listings, QR menus, guest reviews and table reservations for Nigerian restaurants, hotels and event hotspots",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,6 +21,7 @@
     "moment": "^2.30.1",
     "mongoose": "^8.23.0",
     "next": "^15.5.4",
+    "nodemailer": "^7.0.13",
     "qrcode": "^1.5.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
+    "@types/nodemailer": "^8.0.2",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
