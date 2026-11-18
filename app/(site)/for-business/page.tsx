@@ -5,6 +5,7 @@ import { IMAGES } from '@/lib/images';
 import { PLANS, promoEnabled } from '@/lib/plans';
 import { naira } from '@/lib/format';
 import PlanCards from '@/components/PlanCards';
+import { PixelEvent } from '@/components/MetaPixel';
 
 export const metadata: Metadata = pageMeta({
     title: 'For restaurants, hotels & event hotspots',
@@ -28,6 +29,7 @@ export default function BusinessPage() {
     ];
     return (
         <>
+            <PixelEvent name="ViewContent" params={{ content_name: 'For business', content_category: 'For restaurants' }} />
             <section className="dn-banner" style={{ paddingBottom: 100 }} data-hero>
                 <div className="bg" style={{ backgroundImage: `url('${IMAGES.places.bar}')` }}></div>
                 <div className="container">

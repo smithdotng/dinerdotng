@@ -47,7 +47,11 @@ export default async function BillingPage({ searchParams }: { searchParams: Prom
                                     </>
                                 )}
                                 <PlanFeatures features={p.features} locked={p.locked} />
-                                <form action={checkoutAction}>
+                                <form
+                                    action={checkoutAction}
+                                    data-pixel="InitiateCheckout"
+                                    data-pixel-params={JSON.stringify({ value: pr.amount, currency: 'NGN', content_name: p.name, content_ids: [p.key], content_type: 'product', num_items: 1 })}
+                                >
                                     <input type="hidden" name="plan" value={p.key} />
                                     <button className={`${p.popular ? 'btn-dn' : 'btn-dn-outline'} btn-block btn-lg-dn`}>
                                         {current ? `Renew for 30 days — ${naira(pr.amount)}` : live ? `Switch to ${p.name} — ${naira(pr.amount)}` : `Pay ${naira(pr.amount)} & go live`}

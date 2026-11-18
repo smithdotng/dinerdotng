@@ -12,6 +12,8 @@ import { enforceRateLimit, RATE_LIMIT_MESSAGE } from '@/lib/rateLimit';
 import { isPlanKey } from '@/lib/plans';
 import { flashUrl, str, uniqueSlug } from '@/lib/helpers';
 import { DAYS, isSpotType } from '@/lib/spot';
+import { PLANS } from '@/lib/plans';
+import { queuePixelEvent } from '@/lib/pixel';
 
 const fail = (path: string, message: string): never => redirect(flashUrl(path, 'error', message));
 
@@ -48,6 +50,7 @@ export async function registerAction(formData: FormData): Promise<void> {
     session.user = { id: user._id.toString(), name: user.name, firstName: user.name.split(' ')[0], email: user.email, role: user.role, unverified: true };
     session.intendedPlan = plan;
     await session.save();
+    await queuePixelEvent({ name: 'Lead', params: { content_name: 'Owner sign-up', content_category: plan }, id: `lead-${user._id}` });
     const sent = await sendVerificationEmail(user._id, await requestOrigin());
     redirect(sent ? '/verify-email' : flashUrl('/verify-email', 'error', "We couldn't send the confirmation email just now. Tap “Resend” to try again."));
 }
@@ -92,7 +95,7 @@ export async function createSpotAction(formData: FormData): Promise<void> {
     if (!name || !city) fail('/onboarding', 'Please give your spot a name and city.');
     const type = isSpotType(formData.get('type')) ? String(formData.get('type')) : 'restaurant';
 
-    await Spot.create({
+    const created = await Spot.create({
         owner: session.user.id,
         name,
         slug: await uniqueSlug(Spot, `${name} ${city}`),
@@ -109,6 +112,11 @@ export async function createSpotAction(formData: FormData): Promise<void> {
     const plan = session.intendedPlan && isPlanKey(session.intendedPlan) ? session.intendedPlan : 'basic';
     session.intendedPlan = undefined;
     await session.save();
+    await queuePixelEvent({
+        name: 'CompleteRegistration',
+        params: { content_name: PLANS[plan as 'basic'].name, content_category: type, status: true },
+        id: `reg-${created._id}`
+    });
     redirect(flashUrl(`/dashboard/billing?plan=${plan}`, 'success', `${name} is set up! Choose a plan to go live.`));
 }
 

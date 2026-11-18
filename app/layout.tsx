@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/seo';
+import { Suspense } from 'react';
 import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
+import MetaPixel from '@/components/MetaPixel';
 
 const TITLE = `${SITE_NAME} — ${SITE_TAGLINE}`;
 
@@ -64,6 +66,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 {children}
                 <ServiceWorkerRegister />
+                <Suspense fallback={null}>
+                    <MetaPixel />
+                </Suspense>
             </body>
         </html>
     );

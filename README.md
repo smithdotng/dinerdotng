@@ -101,6 +101,7 @@ seed/             createAdmin + demo seed
    | `FLW_SECRET_KEY` | Flutterwave secret key (leave out to run in demo mode) |
    | `FLW_WEBHOOK_HASH` | the secret hash you set in Flutterwave › Settings › Webhooks |
    | `FIRST_CUSTOMER_PROMO` | `true` (or `false` to end the launch discount) |
+   | `NEXT_PUBLIC_META_PIXEL_ID` | your Meta Pixel ID (Events Manager). Optional — tracking is off without it. Redeploy after changing it, since it is baked into the browser bundle |
 
    **Don't add `NODE_ENV`** (Vercel sets it) and don't paste your local `.env` wholesale — it contains development-only values.
 
@@ -113,3 +114,21 @@ seed/             createAdmin + demo seed
 7. **Domain** — add `diner.ng` under Project › Settings › Domains and update `APP_URL`.
 
 > Don't run `npm run seed` against production — it loads fictional demo spots.
+
+## Meta Pixel (Facebook & Instagram ads)
+
+Set `NEXT_PUBLIC_META_PIXEL_ID` and the pixel loads on every public and dashboard page (not `/admin` or `/print`). Standard events:
+
+| Event | Fired when | Key parameters |
+|---|---|---|
+| `PageView` | every page, including client-side navigation | — |
+| `ViewContent` | a spot page, `/pricing` or `/for-business` is viewed | `content_name`, `content_ids` (spot slug) |
+| `Search` | `/explore` is loaded with a search term | `search_string` |
+| `Contact` | a phone, WhatsApp or email link is tapped | `content_name` = phone / whatsapp / email |
+| `Lead` | an owner creates an account | `content_category` = chosen plan |
+| `CompleteRegistration` | the owner finishes onboarding (spot created) | `content_name` = plan |
+| `InitiateCheckout` | the owner clicks a plan's pay button | `value`, `currency` (NGN) |
+| `Purchase` | Flutterwave payment confirmed on return | `value`, `currency`, event ID = payment reference |
+| `Schedule` | a diner books a table | `content_name` = spot, `num_items` = party size |
+
+Events that finish in a redirect (sign-up, onboarding, booking, payment) are queued in a short-lived `dn_px` cookie by `lib/pixel.ts` and fired by `components/MetaPixel.tsx` on the next page. Each carries an event ID so Meta de-duplicates repeats, and so the Conversions API can be added later with the same IDs. Any element can fire an event declaratively: `<form data-pixel="Lead" data-pixel-params='{"content_name":"..."}'>`.
