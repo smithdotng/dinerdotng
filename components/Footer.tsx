@@ -12,7 +12,7 @@ export default function Footer({ promo }: { promo: boolean }) {
                     <div className="col-lg-4">
                         <Link href="/" className="dn-logo mb-3"><Logo variant="light" height={42} /></Link>
                         <p className="mt-3" style={{ maxWidth: 340 }}>
-                            Nigeria&apos;s home for great tables. Discover restaurants, hotels and event hotspots, scan the menu, rate your experience and book a table.
+                            Nigeria&apos;s finest tables, reserved for you. Discover premium restaurants, lounges and hotel dining, preview the menu and reserve your table.
                         </p>
                         <div className="social mt-3">
                             <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
@@ -27,8 +27,8 @@ export default function Footer({ promo }: { promo: boolean }) {
                             <li><Link href="/explore?type=restaurant">Restaurants</Link></li>
                             <li><Link href="/explore?type=hotel">Hotels</Link></li>
                             <li><Link href="/explore?type=lounge">Lounges &amp; bars</Link></li>
-                            <li><Link href="/explore?type=event">Event hotspots</Link></li>
-                            <li><Link href="/explore?bookable=1">Book a table</Link></li>
+                            <li><Link href="/explore?type=event">Event venues</Link></li>
+                            <li><Link href="/explore?bookable=1">Reserve a table</Link></li>
                             <li><Link href="/blog">Blog &amp; offers</Link></li>
                         </ul>
                     </div>
@@ -37,23 +37,23 @@ export default function Footer({ promo }: { promo: boolean }) {
                         <ul>
                             <li><Link href="/for-business">How it works</Link></li>
                             <li><Link href="/pricing">Pricing</Link></li>
-                            <li><Link href="/register">List your spot</Link></li>
+                            <li><Link href="/register">List your venue</Link></li>
                             <li><Link href="/login">Owner login</Link></li>
                         </ul>
                     </div>
                     <div className="col-lg-4">
                         {promo ? (
                             <>
-                                <h5>First-customer offer</h5>
+                                <h5>First-month rate</h5>
                                 <p>
-                                    Get listed from just <b style={{ color: '#fff' }}>{naira(PLANS.basic.firstCustomerPrice)}</b> for your first month. Go Sweet for{' '}
-                                    <b style={{ color: '#fff' }}>{naira(PLANS.sweet.firstCustomerPrice)}</b> and get featured with table bookings.
+                                    New venues pay <b style={{ color: '#fff' }}>{naira(PLANS.basic.firstCustomerPrice)}</b> for their first month on Basic, or{' '}
+                                    <b style={{ color: '#fff' }}>{naira(PLANS.sweet.firstCustomerPrice)}</b> on Sweet with featured placement and reservations.
                                 </p>
                             </>
                         ) : (
                             <>
-                                <h5>List your spot</h5>
-                                <p>Plans from <b style={{ color: '#fff' }}>{naira(PLANS.basic.price)}</b> per month.</p>
+                                <h5>For premium venues</h5>
+                                <p>Restaurants, lounges and hotel dining. Plans from <b style={{ color: '#fff' }}>{naira(PLANS.basic.price)}</b> per month.</p>
                             </>
                         )}
                         <div className="d-flex gap-2 flex-wrap align-items-center">

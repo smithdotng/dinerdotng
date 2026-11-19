@@ -17,7 +17,7 @@ export default async function OnboardingPage() {
             <h1>Tell us about your spot</h1>
             <p className="text-muted-dn mb-4">You can add photos, your menu and more details from your dashboard.</p>
             <form action={createSpotAction}>
-                <div className="mb-3"><label className="form-label">Spot name</label><input className="form-control" name="name" placeholder="e.g. Mama Put Deluxe" required /></div>
+                <div className="mb-3"><label className="form-label">Spot name</label><input className="form-control" name="name" placeholder="e.g. The Grill Room" required /></div>
                 <label className="form-label">What kind of spot is it?</label>
                 <div className="plan-picker mb-3" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(130px,1fr))' }}>
                     {SPOT_TYPE_KEYS.map((k) => (
@@ -30,7 +30,7 @@ export default async function OnboardingPage() {
                         </div>
                     ))}
                 </div>
-                <div className="mb-3"><label className="form-label">Tagline</label><input className="form-control" name="tagline" maxLength={120} placeholder="Smoky jollof, cold chapman and good vibes" /></div>
+                <div className="mb-3"><label className="form-label">Tagline</label><input className="form-control" name="tagline" maxLength={120} placeholder="Modern Nigerian cuisine and a rooftop view of the city" /></div>
                 <div className="row g-3 mb-3">
                     <div className="col-sm-6"><label className="form-label">Area / neighbourhood</label><input className="form-control" name="area" placeholder="Wuse 2" /></div>
                     <div className="col-sm-6"><label className="form-label">City</label><input className="form-control" name="city" placeholder="Abuja" required /></div>

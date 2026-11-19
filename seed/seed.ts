@@ -190,8 +190,8 @@ async function main() {
         );
         await refreshSpotRating(spot._id);
         await Payment.create({
-            user: owner._id, spot: spot._id, plan: d.plan, amount: d.plan === 'sweet' ? 5999 : 2999, regularAmount: d.plan === 'sweet' ? 22999 : 14999,
-            firstCustomerDiscount: true, reference: `DNG-DEMO-${i}-${Date.now()}`, provider: 'demo', status: 'success', paidAt: days(-5), periodStart: days(-5), periodEnd: days(25 - i)
+            user: owner._id, spot: spot._id, plan: d.plan, amount: d.plan === 'sweet' ? 74999 : 52999, regularAmount: d.plan === 'sweet' ? 74999 : 52999,
+            firstCustomerDiscount: false, reference: `DNG-DEMO-${i}-${Date.now()}`, provider: 'demo', status: 'success', paidAt: days(-5), periodStart: days(-5), periodEnd: days(25 - i)
         });
         console.log(`✓ ${spot.name} (${d.plan}) — /spots/${spot.slug}`);
     }

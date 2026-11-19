@@ -20,7 +20,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
                 <div className="mb-3"><label className="form-label" htmlFor="email">Email</label><input className="form-control" id="email" type="email" name="email" required autoFocus /></div>
                 <div className="mb-4"><label className="form-label" htmlFor="password">Password</label><input className="form-control" id="password" type="password" name="password" required /></div>
                 <button className="btn-dn btn-block btn-lg-dn">Log in</button>
-                <p className="text-center mt-3 text-muted-dn">New to Diner.ng? <Link href="/register"><b>List your spot</b></Link></p>
+                <p className="text-center mt-3 text-muted-dn">New to Diner.ng? <Link href="/register"><b>List your venue</b></Link></p>
             </form>
         </>
     );

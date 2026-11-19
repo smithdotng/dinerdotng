@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
 export const SITE_NAME = 'Diner.ng';
-export const SITE_TAGLINE = 'Nigeria’s fun spots, one table away';
+export const SITE_TAGLINE = 'Nigeria’s finest tables, reserved for you';
 export const SITE_DESCRIPTION =
-    'Discover Nigeria’s best restaurants, lounges, sitouts, hotels and event hotspots. See the menu before you go, scan QR menus, rate your experience and book a table on Diner.ng.';
-export const DEFAULT_OG_IMAGE = { url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Diner.ng — Nigeria’s fun spots, one table away' };
+    'Discover Nigeria’s finest restaurants, lounges and hotel dining. Browse the menu before you arrive, read verified guest reviews and reserve your table on Diner.ng.';
+export const DEFAULT_OG_IMAGE = { url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Diner.ng — Nigeria’s finest tables, reserved for you' };
 
 /** Absolute site URL for metadata, canonical links and the sitemap. */
 export function siteUrl() {
