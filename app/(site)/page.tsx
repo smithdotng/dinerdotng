@@ -12,15 +12,15 @@ import PostCard from '@/components/PostCard';
 import { Post, publishedFilter, type IPost } from '@/models/Post';
 
 export const metadata = {
-    ...pageMeta({ title: 'Diner.ng — Nigeria’s fun spots, one table away', path: '/' }),
-    title: { absolute: 'Diner.ng — Nigeria’s fun spots, one table away' }
+    ...pageMeta({ title: 'Diner.ng — Nigeria’s finest tables, reserved for you', path: '/' }),
+    title: { absolute: 'Diner.ng — Nigeria’s finest tables, reserved for you' }
 };
 
 const STEPS = [
-    ['fa-magnifying-glass-location', 'Discover', 'Browse restaurants, hotels and hotspots near you with real photos and ratings.'],
-    ['fa-qrcode', 'Scan the menu', 'Scan the QR code on your table to see the full menu and prices instantly.'],
-    ['fa-calendar-check', 'Book a table', 'Reserve your table ahead at Sweet-tier spots and get a booking code.'],
-    ['fa-star', 'Rate & review', 'Tell the spot how it went. Your feedback helps them serve you better.']
+    ['fa-magnifying-glass-location', 'Discover', 'Explore a curated selection of the city’s finest restaurants, lounges and hotel dining.'],
+    ['fa-book-open', 'Preview the menu', 'See the full menu, with prices, before you arrive — or scan it at your table.'],
+    ['fa-calendar-check', 'Reserve your table', 'Secure your table in seconds and arrive to a confirmed booking.'],
+    ['fa-star', 'Share your experience', 'Rate the food, service and ambience. Your review guides fellow diners.']
 ];
 
 export default async function HomePage() {
@@ -47,18 +47,18 @@ export default async function HomePage() {
                     <div className="row align-items-center gy-5">
                         <div className="col-lg-7">
                             <span className="hero-badge animate__animated animate__fadeInDown">
-                                <i className="fas fa-fire-flame-curved"></i> Restaurants · Hotels · Event hotspots across Nigeria
+                                <i className="fas fa-champagne-glasses"></i> Fine dining · Lounges · Hotel restaurants
                             </span>
                             <h1 className="animate__animated animate__fadeInUp">
-                                Find your next <span className="serif">favourite table.</span>
+                                Nigeria’s finest tables, <span className="serif">reserved for you.</span>
                             </h1>
                             <p className="lead animate__animated animate__fadeInUp">
-                                Discover great spots, scan the menu before you sit, rate your experience and book a table — all on Diner.ng.
+                                Discover exceptional restaurants and lounges, preview the menu before you arrive, and reserve your table in moments — all on Diner.ng.
                             </p>
                             <form className="hero-search animate__animated animate__fadeInUp" action="/explore" method="get">
                                 <div className="field">
                                     <i className="fas fa-magnifying-glass"></i>
-                                    <input type="text" name="q" placeholder="Jollof, suya, rooftop, brunch…" aria-label="Search" />
+                                    <input type="text" name="q" placeholder="Fine dining, rooftop, sushi, steak…" aria-label="Search" />
                                 </div>
                                 <div className="field">
                                     <i className="fas fa-location-dot"></i>
@@ -80,7 +80,7 @@ export default async function HomePage() {
                                 <div className="ph ph-1" style={{ backgroundImage: `url('${IMAGES.heroSide}')` }}></div>
                                 <div className="ph ph-2" style={{ backgroundImage: `url('${IMAGES.food.spread}')` }}></div>
                                 <div className="ph ph-3" style={{ backgroundImage: `url('${IMAGES.food.cocktail}')` }}></div>
-                                <div className="hero-float f1"><span className="ic"><i className="fas fa-qrcode"></i></span><div><b>Scan. See. Order.</b><br /><small className="text-muted-dn">QR menu in seconds</small></div></div>
+                                <div className="hero-float f1"><span className="ic"><i className="fas fa-qrcode"></i></span><div><b>The menu, at your table</b><br /><small className="text-muted-dn">Scan to browse</small></div></div>
                                 <div className="hero-float f2"><span className="ic"><i className="fas fa-calendar-check"></i></span><div><b>Table for 4, 8pm</b><br /><small className="text-muted-dn">Booking confirmed</small></div></div>
                             </div>
                         </div>
@@ -92,9 +92,9 @@ export default async function HomePage() {
             <section className="dn-section tight">
                 <div className="container">
                     <div className="section-head">
-                        <span className="section-kicker">Where to?</span>
-                        <h2>Great spots for every <span className="serif text-primary-dn">mood</span></h2>
-                        <p>From quiet breakfast cafés to rooftop lounges and full-blown event venues.</p>
+                        <span className="section-kicker">Where to tonight?</span>
+                        <h2>Chosen for every <span className="serif text-primary-dn">occasion</span></h2>
+                        <p>From intimate dinners for two to rooftop evenings and celebrations worth dressing up for.</p>
                     </div>
                     <div className="row g-3">
                         {SPOT_TYPE_KEYS.map((k, i) => (
@@ -118,7 +118,7 @@ export default async function HomePage() {
                 <section className="dn-section tight bg-sand">
                     <div className="container">
                         <div className="head-row">
-                            <div><span className="section-kicker" style={{ marginLeft: -8 }}>Featured</span><h2>Sweet spots worth the trip</h2></div>
+                            <div><span className="section-kicker" style={{ marginLeft: -8 }}>Featured</span><h2>Featured venues</h2></div>
                             <Link href="/explore" className="btn-dn-outline btn-sm-dn">View all <i className="fas fa-arrow-right"></i></Link>
                         </div>
                         <div className="row g-4">
@@ -132,9 +132,9 @@ export default async function HomePage() {
             <section className="dn-section">
                 <div className="container">
                     <div className="section-head">
-                        <span className="section-kicker">For guests</span>
-                        <h2>Dining out, made <span className="serif text-primary-dn">easy</span></h2>
-                        <p>No app to download. Just your phone camera and an appetite.</p>
+                        <span className="section-kicker">For diners</span>
+                        <h2>Dining out, <span className="serif text-primary-dn">elevated</span></h2>
+                        <p>No app to download. Everything you need before, during and after your evening.</p>
                     </div>
                     <div className="row g-4">
                         {STEPS.map((s, i) => (
@@ -150,7 +150,7 @@ export default async function HomePage() {
             <section className="dn-section tight" style={{ paddingTop: 0 }}>
                 <div className="container">
                     <div className="head-row">
-                        <div><span className="section-kicker" style={{ marginLeft: -8 }}>Loved by guests</span><h2>Top-rated spots</h2></div>
+                        <div><span className="section-kicker" style={{ marginLeft: -8 }}>Highly rated</span><h2>Guests’ favourites</h2></div>
                         <Link href="/explore?sort=rating" className="btn-dn-outline btn-sm-dn">See more <i className="fas fa-arrow-right"></i></Link>
                     </div>
                     {topRated.length ? (
@@ -160,9 +160,9 @@ export default async function HomePage() {
                     ) : (
                         <div className="empty-state">
                             <i className="fas fa-utensils"></i>
-                            <h4>Spots are being plated up</h4>
-                            <p className="text-muted-dn">Be one of the first on Diner.ng{promo ? ` — first customers list from ${naira(PLANS.basic.firstCustomerPrice)}` : ''}.</p>
-                            <Link href="/register" className="btn-dn">List your spot</Link>
+                            <h4>Our first venues are being curated</h4>
+                            <p className="text-muted-dn">Run a premium restaurant or lounge? Be among the first on Diner.ng{promo ? ` — first month ${naira(PLANS.basic.firstCustomerPrice)}` : ''}.</p>
+                            <Link href="/register" className="btn-dn">List your venue</Link>
                         </div>
                     )}
                 </div>
@@ -173,7 +173,7 @@ export default async function HomePage() {
                 <section className="dn-section tight" style={{ paddingTop: 0 }}>
                     <div className="container">
                         <div className="head-row">
-                            <div><span className="section-kicker" style={{ marginLeft: -8 }}>From the blog</span><h2>Guides, reviews &amp; hot offers</h2></div>
+                            <div><span className="section-kicker" style={{ marginLeft: -8 }}>From the blog</span><h2>Guides, reviews &amp; exclusive offers</h2></div>
                             <Link href="/blog" className="btn-dn-outline btn-sm-dn">Read the blog <i className="fas fa-arrow-right"></i></Link>
                         </div>
                         <div className="row g-4">
@@ -188,19 +188,19 @@ export default async function HomePage() {
                 <div className="container">
                     <div className="row align-items-center gy-5">
                         <div className="col-lg-6 order-lg-2">
-                            <span className="section-kicker" style={{ marginLeft: -8 }}>For hospitality entrepreneurs</span>
-                            <h2 style={{ fontSize: 'clamp(30px,3.4vw,42px)' }} className="mb-3">Everything your spot needs to <span className="serif text-primary-dn">welcome guests</span></h2>
-                            <p className="text-muted-dn mb-4">Create your account, build your menu, and get a unique QR link your guests can scan at the table. Collect ratings, showcase your photos and take reservations.</p>
+                            <span className="section-kicker" style={{ marginLeft: -8 }}>For premium venues</span>
+                            <h2 style={{ fontSize: 'clamp(30px,3.4vw,42px)' }} className="mb-3">A digital experience <span className="serif text-primary-dn">as polished as your service</span></h2>
+                            <p className="text-muted-dn mb-4">Present your venue to discerning diners, give every table an elegant menu that is always current, and manage reservations and guest feedback from one place.</p>
                             {[
-                                ['fa-store', 'A beautiful listing', 'Photos, opening hours, location, contacts and your story — searchable by guests.'],
-                                ['fa-qrcode', 'QR menu you can update any time', 'Change prices, mark dishes sold out and add specials — no reprinting.'],
-                                ['fa-comments', 'Ratings & guest feedback', 'Guests rate food, service and ambience. Reply publicly and win them back.'],
-                                ['fa-chair', 'Book-a-table & table management', 'On the Sweet tier: online reservations, table plans and per-table QR codes.']
+                                ['fa-store', 'A listing worthy of your venue', 'Your photography, story, hours and location, in front of diners looking for somewhere special.'],
+                                ['fa-qrcode', 'An elegant menu, always current', 'Update prices, add tonight’s specials or mark a dish unavailable in seconds — nothing to reprint.'],
+                                ['fa-comments', 'Guest reviews you can answer', 'Diners rate food, service and ambience. Respond personally and keep your reputation spotless.'],
+                                ['fa-chair', 'Reservations & table management', 'On Sweet: online bookings, floor sections and per-table QR codes.']
                             ].map((f) => (
                                 <div key={f[1]} className="feature-row"><span className="ic"><i className={`fas ${f[0]}`}></i></span><div><h5>{f[1]}</h5><p>{f[2]}</p></div></div>
                             ))}
                             <div className="d-flex gap-2 flex-wrap mt-4">
-                                <Link href="/register" className="btn-dn btn-lg-dn">List your spot</Link>
+                                <Link href="/register" className="btn-dn btn-lg-dn">List your venue</Link>
                                 <Link href="/for-business" className="btn-dn-outline btn-lg-dn">How it works</Link>
                             </div>
                         </div>
@@ -211,10 +211,10 @@ export default async function HomePage() {
                                 <div className="phone">
                                     <div className="screen">
                                         <div className="top"><i className="fas fa-utensils me-1"></i> Menu</div>
-                                        {[['Smoky party jollof', 6500], ['Beef suya platter', 8000], ['Goat pepper soup', 7500], ['Chapman', 3000]].map(([n, p]) => (
+                                        {[['Wagyu suya, yaji butter', 38000], ['Lobster jollof', 45000], ['Seared croaker, ofada sauce', 32000], ['Smoked old fashioned', 15000]].map(([n, p]) => (
                                             <div key={n} className="row-i"><span>{n}</span><b>{naira(p as number)}</b></div>
                                         ))}
-                                        <div className="p-2 text-center"><span className="pill pill-featured"><i className="fas fa-star"></i> Rate us</span></div>
+                                        <div className="p-2 text-center"><span className="pill pill-featured"><i className="fas fa-star"></i> Share your experience</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -228,8 +228,8 @@ export default async function HomePage() {
                 <div className="container">
                     <div className="section-head">
                         <span className="section-kicker">Pricing</span>
-                        <h2>Simple plans. <span className="serif text-primary-dn">Sweet</span> launch prices.</h2>
-                        <p>Monthly billing in Naira.{promo ? ' First customers get their first month at a special discount.' : ''}</p>
+                        <h2>Two plans. <span className="serif text-primary-dn">One standard</span> of excellence.</h2>
+                        <p>Monthly billing in Naira. No setup fees, no contracts.{promo ? ' New venues get a special first-month rate.' : ''}</p>
                     </div>
                     <PlanCards promo={promo} />
                 </div>
@@ -242,12 +242,12 @@ export default async function HomePage() {
                         <div className="bg" style={{ backgroundImage: `url('${IMAGES.cta}')` }}></div>
                         <div className="row align-items-center gy-4">
                             <div className="col-lg-8">
-                                <h2>Ready to fill more tables?</h2>
+                                <h2>Put your venue in front of Nigeria’s most discerning diners</h2>
                                 <p className="mb-0" style={{ opacity: 0.92, fontSize: 18 }}>
-                                    Join Diner.ng today{promo ? ` — go live from just ${naira(PLANS.basic.firstCustomerPrice)} for your first month` : ''}.
+                                    Join Diner.ng{promo ? ` — first month ${naira(PLANS.basic.firstCustomerPrice)}` : ` from ${naira(PLANS.basic.price)} a month`}.
                                 </p>
                             </div>
-                            <div className="col-lg-4 text-lg-end"><Link href="/register" className="btn-dn-light btn-lg-dn">Get started <i className="fas fa-arrow-right"></i></Link></div>
+                            <div className="col-lg-4 text-lg-end"><Link href="/register" className="btn-dn-light btn-lg-dn">List your venue <i className="fas fa-arrow-right"></i></Link></div>
                         </div>
                     </div>
                 </div>

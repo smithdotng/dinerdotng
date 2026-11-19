@@ -4,7 +4,7 @@ import { SITE_DESCRIPTION } from '@/lib/seo';
 export default function manifest(): MetadataRoute.Manifest {
     return {
         id: '/',
-        name: 'Diner.ng — Nigeria’s fun spots',
+        name: 'Diner.ng — Nigeria’s finest tables',
         short_name: 'Diner.ng',
         description: SITE_DESCRIPTION,
         start_url: '/?source=pwa',

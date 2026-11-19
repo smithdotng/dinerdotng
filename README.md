@@ -25,14 +25,15 @@ Listings, QR menus, guest reviews and table reservations for Nigerian restaurant
 
 ## Plans
 
+Diner.ng is positioned for premium and upscale restaurants, lounges and hotel dining.
+
 | | Basic | Sweet |
 |---|---|---|
-| Monthly | ₦14,999 | ₦22,999 |
-| First month (first customer discount) | ₦2,999 | ₦5,999 |
+| Monthly | ₦52,999 | ₦74,999 |
 | Listing + QR menu + reviews | ✓ | ✓ |
-| Featured spot, book-a-table, table management | – | ✓ |
+| Featured placement, reservations, table management | – | ✓ |
 
-"First customer" = an account that has never paid. Plans run 30 days; renewing the same plan extends the period. Prices live in `lib/plans.ts`. Set `FIRST_CUSTOMER_PROMO=false` to switch the discount off.
+Plans run 30 days; renewing the same plan extends the period. Prices live in `lib/plans.ts`. There is no first-month discount by default; to run one, set `firstCustomerPrice` in `lib/plans.ts` and `FIRST_CUSTOMER_PROMO=true` (applies to accounts that have never paid).
 
 ## Getting started
 
@@ -100,7 +101,7 @@ seed/             createAdmin + demo seed
    | `APP_URL` | your live URL, e.g. `https://diner.ng` (used for QR codes and payment redirects) |
    | `FLW_SECRET_KEY` | Flutterwave secret key (leave out to run in demo mode) |
    | `FLW_WEBHOOK_HASH` | the secret hash you set in Flutterwave › Settings › Webhooks |
-   | `FIRST_CUSTOMER_PROMO` | `true` (or `false` to end the launch discount) |
+   | `FIRST_CUSTOMER_PROMO` | leave unset (or `false`). Only set `true` when running a first-month offer |
    | `NEXT_PUBLIC_META_PIXEL_ID` | your Meta Pixel ID (Events Manager). Optional — tracking is off without it. Redeploy after changing it, since it is baked into the browser bundle |
 
    **Don't add `NODE_ENV`** (Vercel sets it) and don't paste your local `.env` wholesale — it contains development-only values.

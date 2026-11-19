@@ -18,10 +18,10 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
                     <div className="bg" style={{ backgroundImage: `url('${IMAGES.auth}')` }}></div>
                     <Link href="/" className="dn-logo"><Logo variant="light" height={44} /></Link>
                     <div>
-                        {promoEnabled() && <span className="hero-badge"><i className="fas fa-tag"></i> First-customer offer: from {naira(PLANS.basic.firstCustomerPrice)}</span>}
-                        <h2>Serve guests better, <span className="serif" style={{ color: 'var(--dn-accent-soft)' }}>one table at a time.</span></h2>
+                        {promoEnabled() && <span className="hero-badge"><i className="fas fa-tag"></i> First-month rate: {naira(PLANS.basic.firstCustomerPrice)}</span>}
+                        <h2>Exceptional venues deserve <span className="serif" style={{ color: 'var(--dn-accent-soft)' }}>an exceptional presence.</span></h2>
                         <p className="mt-3" style={{ opacity: 0.9, maxWidth: 460 }}>
-                            Put your spot on the map, share a QR menu your guests will love, collect honest ratings and take reservations — all from one dashboard.
+                            Present your venue to discerning diners, give every table an elegant, always-current menu, and manage reservations and reviews from one dashboard.
                         </p>
                     </div>
                     <div className="d-flex gap-4 small" style={{ opacity: 0.9 }}>

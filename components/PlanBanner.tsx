@@ -38,7 +38,7 @@ export default function PlanBanner({ spot }: { spot: SpotLike }) {
                 <h4><i className="fas fa-eye-slash me-2"></i>Your spot isn&apos;t live yet</h4>
                 <div style={{ opacity: 0.92 }}>
                     Choose a plan to publish your listing and switch on your QR menu. Already paid? It can take a minute to confirm — refresh this page.
-                    {promoEnabled() && <> First customers pay from <b>{naira(PLANS.basic.firstCustomerPrice)}</b>.</>}
+                    {promoEnabled() && <> First month from <b>{naira(PLANS.basic.firstCustomerPrice)}</b>.</>}
                 </div>
             </div>
             <Link href="/dashboard/billing" className="btn-dn-light btn-sm-dn">Go live <i className="fas fa-arrow-right"></i></Link>

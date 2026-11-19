@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: { default: TITLE, template: `%s | ${SITE_NAME}` },
     description: SITE_DESCRIPTION,
     applicationName: SITE_NAME,
-    keywords: ['restaurants in Nigeria', 'lounges', 'sitouts', 'Abuja restaurants', 'Lagos restaurants', 'QR menu', 'book a table', 'Nigerian food', 'hotels', 'event venues'],
+    keywords: ['fine dining Nigeria', 'luxury restaurants Abuja', 'upscale restaurants Lagos', 'premium lounges', 'rooftop lounges', 'hotel restaurants', 'reserve a table', 'QR menu', 'Abuja restaurants', 'Lagos restaurants'],
     alternates: { canonical: '/' },
     manifest: '/manifest.webmanifest',
     icons: {
