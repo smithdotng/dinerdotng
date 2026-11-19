@@ -4,6 +4,17 @@ export const SITE_NAME = 'Diner.ng';
 export const SITE_TAGLINE = 'Nigeria’s finest tables, reserved for you';
 export const SITE_DESCRIPTION =
     'Discover Nigeria’s finest restaurants, lounges and hotel dining. Browse the menu before you arrive, read verified guest reviews and reserve your table on Diner.ng.';
+/** Official Diner.ng accounts (handle is the same everywhere). */
+export const SOCIAL = {
+    handle: 'dinerdotng',
+    instagram: 'https://instagram.com/dinerdotng',
+    x: 'https://x.com/dinerdotng',
+    facebook: 'https://facebook.com/dinerdotng',
+    whatsappDisplay: '0909 235 7149',
+    whatsapp: 'https://wa.me/2349092357149'
+} as const;
+export const SOCIAL_PROFILES = [SOCIAL.instagram, SOCIAL.x, SOCIAL.facebook];
+
 export const DEFAULT_OG_IMAGE = { url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Diner.ng — Nigeria’s finest tables, reserved for you' };
 
 /** Absolute site URL for metadata, canonical links and the sitemap. */
@@ -47,7 +58,7 @@ export function pageMeta(opts: {
             images,
             ...(opts.type === 'article' ? { publishedTime: opts.publishedTime, authors: opts.authors, tags: opts.tags } : {})
         },
-        twitter: { card: 'summary_large_image', title: opts.title, description, images: images.map((i) => i.url) },
+        twitter: { card: 'summary_large_image', site: `@${SOCIAL.handle}`, title: opts.title, description, images: images.map((i) => i.url) },
         ...(opts.noindex ? { robots: { index: false, follow: false } } : {})
     };
 }

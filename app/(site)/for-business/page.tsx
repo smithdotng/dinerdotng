@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { pageMeta } from '@/lib/seo';
+import { pageMeta, SOCIAL } from '@/lib/seo';
 import { IMAGES } from '@/lib/images';
 import { PLANS, promoEnabled } from '@/lib/plans';
 import { naira } from '@/lib/format';
@@ -41,6 +41,9 @@ export default function BusinessPage() {
                             <Link href="/register" className="btn-dn-light btn-lg-dn">Create my account</Link>
                             <Link href="/pricing" className="btn-dn-ghost btn-lg-dn">See pricing</Link>
                         </div>
+                        <p className="mt-3 mb-0" style={{ opacity: 0.92 }}>
+                            Prefer to talk first? <a href={SOCIAL.whatsapp} target="_blank" rel="noopener" style={{ color: '#fff', fontWeight: 600 }}><i className="fab fa-whatsapp me-1"></i>WhatsApp us on {SOCIAL.whatsappDisplay}</a>
+                        </p>
                     </div></div>
                 </div>
             </section>
