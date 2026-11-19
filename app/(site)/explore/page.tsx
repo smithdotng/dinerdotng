@@ -7,6 +7,7 @@ import { isFeatured, isSpotType, liveFilter, SPOT_TYPES, SPOT_TYPE_KEYS } from '
 import { escapeRegex } from '@/lib/helpers';
 import { IMAGES } from '@/lib/images';
 import SpotCard from '@/components/SpotCard';
+import { PixelEvent } from '@/components/MetaPixel';
 
 type SP = Promise<{ q?: string; city?: string; type?: string; sort?: string; bookable?: string }>;
 
@@ -42,6 +43,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: SP }
 
     return (
         <>
+            {q.trim() && <PixelEvent name="Search" params={{ search_string: q.trim(), content_category: type || 'all', ...(city ? { city } : {}) }} />}
             <section className="dn-banner" data-hero>
                 <div className="bg" style={{ backgroundImage: `url('${isSpotType(type) ? IMAGES.categories[type] : IMAGES.places.dining}')` }}></div>
                 <div className="container">

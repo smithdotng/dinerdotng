@@ -10,6 +10,7 @@ import { canTakeReservations, isLive } from '@/lib/spot';
 import { flashUrl, int, randomCode, str } from '@/lib/helpers';
 import { todayISO } from '@/lib/format';
 import { enforceRateLimit, RATE_LIMIT_MESSAGE } from '@/lib/rateLimit';
+import { queuePixelEvent } from '@/lib/pixel';
 
 async function visibleSpot(slug: string) {
     await connectDB();
@@ -86,6 +87,11 @@ export async function reserveTableAction(slug: string, formData: FormData): Prom
         seating: str(formData, 'seating'),
         occasion: str(formData, 'occasion'),
         notes: str(formData, 'notes').slice(0, 500)
+    });
+    await queuePixelEvent({
+        name: 'Schedule',
+        params: { content_name: spot!.name, content_category: String(spot!.type || 'restaurant'), num_items: partySize },
+        id: `res-${code}`
     });
     redirect(`/reservations/${code}`);
 }

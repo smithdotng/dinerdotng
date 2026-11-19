@@ -15,6 +15,7 @@ import Stars, { StarInput } from '@/components/Stars';
 import MenuTabs from '@/components/MenuTabs';
 import { pageMeta } from '@/lib/seo';
 import { Post, POST_TYPES, publishedFilter, type IPost } from '@/models/Post';
+import { PixelEvent } from '@/components/MetaPixel';
 
 type Params = Promise<{ slug: string }>;
 
@@ -96,6 +97,7 @@ export default async function SpotPage({ params }: { params: Params }) {
 
     return (
         <>
+            {!preview && <PixelEvent name="ViewContent" params={{ content_name: spot.name, content_ids: [spot.slug], content_type: 'product', content_category: String(spot.type || 'restaurant') }} />}
             {preview && (
                 <div className="preview-bar" style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1200 }}>
                     <i className="fas fa-eye me-1"></i> Preview — only you can see this page. <Link href="/dashboard/billing"><b>Choose a plan to go live</b></Link>.
