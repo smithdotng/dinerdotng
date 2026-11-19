@@ -3,6 +3,7 @@ import Logo from './Logo';
 import InstallAppButton from './InstallAppButton';
 import { PLANS } from '@/lib/plans';
 import { naira } from '@/lib/format';
+import { SOCIAL } from '@/lib/seo';
 
 export default function Footer({ promo }: { promo: boolean }) {
     return (
@@ -15,11 +16,14 @@ export default function Footer({ promo }: { promo: boolean }) {
                             Nigeria&apos;s finest tables, reserved for you. Discover premium restaurants, lounges and hotel dining, preview the menu and reserve your table.
                         </p>
                         <div className="social mt-3">
-                            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="X"><i className="fab fa-x-twitter"></i></a>
-                            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+                            <a href={SOCIAL.instagram} target="_blank" rel="noopener" aria-label="Diner.ng on Instagram"><i className="fab fa-instagram"></i></a>
+                            <a href={SOCIAL.x} target="_blank" rel="noopener" aria-label="Diner.ng on X"><i className="fab fa-x-twitter"></i></a>
+                            <a href={SOCIAL.facebook} target="_blank" rel="noopener" aria-label="Diner.ng on Facebook"><i className="fab fa-facebook-f"></i></a>
+                            <a href={SOCIAL.whatsapp} target="_blank" rel="noopener" aria-label="Chat with Diner.ng on WhatsApp"><i className="fab fa-whatsapp"></i></a>
                         </div>
+                        <p className="small mt-3 mb-0">
+                            <i className="fab fa-whatsapp me-1"></i> <a href={SOCIAL.whatsapp} target="_blank" rel="noopener" style={{ color: '#fff' }}>{SOCIAL.whatsappDisplay}</a> &nbsp;·&nbsp; @{SOCIAL.handle}
+                        </p>
                     </div>
                     <div className="col-6 col-lg-2">
                         <h5>Discover</h5>

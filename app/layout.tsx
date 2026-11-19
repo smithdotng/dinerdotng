@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/seo';
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SOCIAL, SOCIAL_PROFILES, siteUrl } from '@/lib/seo';
 import { Suspense } from 'react';
 import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
 import MetaPixel from '@/components/MetaPixel';
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         description: SITE_DESCRIPTION,
         images: [DEFAULT_OG_IMAGE]
     },
-    twitter: { card: 'summary_large_image', title: TITLE, description: SITE_DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] }
+    twitter: { card: 'summary_large_image', site: `@${SOCIAL.handle}`, title: TITLE, description: SITE_DESCRIPTION, images: [DEFAULT_OG_IMAGE.url] }
 };
 
 export const viewport: Viewport = {
@@ -62,6 +62,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link rel="stylesheet" href="/assets/vendors/animate/animate.min.css" />
                 {/* Diner.ng warm theme — loaded after the vendors so it wins */}
                 <link rel="stylesheet" href="/css/diner.css" />
+                <script
+                    type="application/ld+json"
+                    // Organisation details for Google: links the site to its social profiles and WhatsApp contact.
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'Organization',
+                            name: SITE_NAME,
+                            url: siteUrl(),
+                            logo: `${siteUrl()}/images/icon-512.png`,
+                            sameAs: SOCIAL_PROFILES,
+                            contactPoint: [{ '@type': 'ContactPoint', telephone: '+234-909-235-7149', contactType: 'customer support', areaServed: 'NG', availableLanguage: ['English'] }]
+                        })
+                    }}
+                />
             </head>
             <body>
                 {children}
