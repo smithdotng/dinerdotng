@@ -21,7 +21,7 @@ export function sampleEmails(name = 'Stanley'): { key: string; label: string; em
         {
             key: 'receipt',
             label: 'Payment receipt',
-            email: paymentReceiptTemplate({ name, spotName: 'Mama Put Deluxe', plan: 'basic', amount: 2999, regularAmount: 14999, firstCustomerDiscount: true, reference: 'DNG-1790000000000-AB12', transactionId: '4812337', provider: 'flutterwave', paidAt: new Date(), periodStart: new Date(), periodEnd: inDays(30), base })
+            email: paymentReceiptTemplate({ name, spotName: 'The Grill Room', plan: 'basic', amount: 52999, regularAmount: 52999, firstCustomerDiscount: false, reference: 'DNG-1790000000000-AB12', transactionId: '4812337', provider: 'flutterwave', paidAt: new Date(), periodStart: new Date(), periodEnd: inDays(30), base })
         },
         ...events.map(([event, label]) => ({
             key: event,

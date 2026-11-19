@@ -30,7 +30,7 @@ export default function PlanCards({ promo }: { promo: boolean }) {
                             {promo ? (
                                 <>
                                     <div className="price-now">{naira(p.firstCustomerPrice)} <small>first month</small></div>
-                                    <span className="promo-tag"><i className="fas fa-tag"></i> First customer discount</span>
+                                    <span className="promo-tag"><i className="fas fa-tag"></i> First-month rate</span>
                                     <div className="price-was"><s>{naira(p.price)}</s> &nbsp;then <b>{naira(p.price)}</b>/month</div>
                                 </>
                             ) : (
@@ -46,7 +46,7 @@ export default function PlanCards({ promo }: { promo: boolean }) {
             </div>
             {promo && (
                 <p className="text-center text-muted-dn small mt-4">
-                    <i className="fas fa-circle-info me-1"></i> The first customer discount applies to your first month on Diner.ng. Plans renew monthly at the standard price; switch plans any time.
+                    <i className="fas fa-circle-info me-1"></i> The first-month rate applies to your first month on Diner.ng. Plans renew monthly at the standard price; switch plans any time.
                 </p>
             )}
         </>

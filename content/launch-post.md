@@ -34,7 +34,7 @@ Diner.ng is your **launchpad**. Here's what's in the box:
 - **Table bookings and table management** on our Sweet plan, so you can see who's coming, seat them properly and keep things moving on a busy Friday night.
 - **Featured placement** for Sweet spots, so hungry people find you first.
 
-And because we like to start things on a sweet note, our **first customers get their first month from just ₦2,999**. That's less than a plate of small chops at some parties. Think about it.
+Diner.ng is built for **premium restaurants, lounges and hotel dining**: venues where guests reserve ahead, dress for the evening and expect the service to match. Plans start at **₦52,999 a month**, with no setup fees and no contracts.
 
 ## Why now?
 
@@ -46,7 +46,7 @@ It just deserves a better front door. So we built one.
 
 **Hungry?** Head over to [Explore](/explore), pick a spot, peek at the menu and go have the time of your life. Then come back and leave a review — tell them Diner.ng sent you.
 
-**Running a spot?** [List your spot](/register) in a few minutes, build your menu, print your QR code and watch your guests smile a little wider. Check the [plans and first-customer pricing](/pricing) while the offer is still hot.
+**Running a spot?** [List your spot](/register) in a few minutes, build your menu, print your QR code and watch your guests smile a little wider. See the [plans and pricing](/pricing).
 
 **Just curious?** Keep an eye on this blog. We'll be serving food guides, honest reviews and the juiciest offers from spots across the country.
 

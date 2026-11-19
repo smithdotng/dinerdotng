@@ -1,4 +1,4 @@
-// Diner.ng subscription plans. Prices are in Naira, billed monthly.
+// Diner.ng subscription plans for premium restaurants, lounges and hotel dining. Prices are in Naira, billed monthly.
 export type PlanKey = 'basic' | 'sweet';
 
 export interface Plan {
@@ -17,36 +17,37 @@ export const PLANS: Record<PlanKey, Plan> = {
     basic: {
         key: 'basic',
         name: 'Basic',
-        tagline: 'Get listed and go menu-less',
-        price: 14999,
-        firstCustomerPrice: 2999,
+        tagline: 'A refined presence for your venue',
+        price: 52999,
+        // Only used if FIRST_CUSTOMER_PROMO=true; the launch discount is off by default.
+        firstCustomerPrice: 52999,
         icon: 'fa-utensils',
         features: [
-            'Public listing on Diner.ng',
-            'Digital menu with unique QR code',
-            'Photo gallery for your spot',
-            'Guest ratings & reviews',
-            'Reply to guest feedback',
-            'Menu views & scan stats'
+            'Curated listing on Diner.ng',
+            'Elegant digital menu with your own QR code',
+            'Photo gallery that showcases your space',
+            'Verified guest ratings & reviews',
+            'Respond to guests personally',
+            'Menu views & scan insights'
         ],
-        locked: ['Featured placement', 'Book-a-table reservations', 'Table management & per-table QR']
+        locked: ['Featured placement', 'Online reservations', 'Table management & per-table QR']
     },
     sweet: {
         key: 'sweet',
         name: 'Sweet',
-        tagline: 'Stack up the extras and fill your tables',
-        price: 22999,
-        firstCustomerPrice: 5999,
+        tagline: 'The full guest experience, from booking to bill',
+        price: 74999,
+        firstCustomerPrice: 74999,
         icon: 'fa-star',
         popular: true,
         features: [
             'Everything in Basic',
-            'Featured spot on the homepage & search',
-            'Book-a-table reservations',
-            'Table management (seats, areas, live status)',
+            'Featured placement on the homepage & search',
+            'Online reservations for diners who plan ahead',
+            'Table management (sections, seating, live status)',
             'Per-table QR codes',
             'Reservations dashboard',
-            'Priority support'
+            'Dedicated priority support'
         ],
         locked: []
     }
@@ -57,7 +58,8 @@ export const PERIOD_DAYS = 30;
 
 export const isPlanKey = (v: unknown): v is PlanKey => v === 'basic' || v === 'sweet';
 
-export const promoEnabled = () => String(process.env.FIRST_CUSTOMER_PROMO ?? 'true').toLowerCase() !== 'false';
+// Off unless FIRST_CUSTOMER_PROMO is explicitly 'true'. Premium venues pay the standard price from month one.
+export const promoEnabled = () => String(process.env.FIRST_CUSTOMER_PROMO ?? 'false').toLowerCase() === 'true';
 
 /** Price a user pays for a plan right now. First customers = accounts that have never paid. */
 export function priceFor(key: PlanKey, user?: { hasPaid?: boolean } | null) {

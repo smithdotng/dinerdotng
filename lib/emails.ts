@@ -104,7 +104,7 @@ function layout(o: { preheader: string; kicker?: string; title: string; titleAcc
         <a href="${base}/blog" style="color:#ffffff;text-decoration:none;font-weight:600;">Blog</a>
       </p>
       <p style="margin:0;font-family:${SANS};font-size:12px;line-height:1.6;color:#C9B3A6;">
-        You're getting this because you have a Diner.ng account. Questions? Just reply to this email.<br>© ${year} Diner.ng · Nigeria's fun spots, one table away.
+        You're getting this because you have a Diner.ng account. Questions? Just reply to this email.<br>© ${year} Diner.ng · Nigeria's finest tables, reserved for you.
       </p>
     </td></tr>
   </table>
@@ -112,7 +112,7 @@ function layout(o: { preheader: string; kicker?: string; title: string; titleAcc
 </body></html>`;
 }
 
-const textFooter = `\n\n— The Diner.ng team\nNigeria's fun spots, one table away.`;
+const textFooter = `\n\n— The Diner.ng team\nNigeria's finest tables, reserved for you.`;
 const first = (name: string) => (name || '').trim().split(/\s+/)[0] || 'there';
 const planName = (k: PlanKey) => PLANS[k]?.name || k;
 
@@ -144,23 +144,23 @@ export function welcomeTemplate(o: { name: string; base?: string }): Email {
         subject: `Welcome to Diner.ng, ${first(o.name)}! 🎉`,
         html: layout({
             base,
-            preheader: "You're in! Here's how to get your spot live and your guests smiling.",
-            kicker: pill("You're in", C.sand, C.primaryDark),
-            title: 'Welcome to the',
-            titleAccent: 'party!',
+            preheader: "Your account is ready. Here's how to present your venue on Diner.ng.",
+            kicker: pill('Welcome', C.sand, C.primaryDark),
+            title: 'Welcome to',
+            titleAccent: 'Diner.ng',
             body:
-                p(`${esc(first(o.name))}, your email is confirmed and your Diner.ng account is ready. You've just joined Nigeria's liveliest directory of restaurants, lounges, sitouts and fun spots — and we're so glad you're here.`) +
-                p(`Here's the fast lane to a buzzing listing:`) +
+                p(`${esc(first(o.name))}, your email is confirmed and your Diner.ng account is ready. You've joined Nigeria's curated guide to premium restaurants, lounges and hotel dining — we're delighted to have you.`) +
+                p(`Four steps to a listing worthy of your venue:`) +
                 steps([
-                    ['📸', 'Show off your spot', 'Add a cover photo and a few gallery shots. Guests eat with their eyes first.'],
-                    ['📖', 'Build your QR menu', 'Add dishes, prices and photos. Update them anytime — no reprinting menus, ever.'],
-                    ['🚀', 'Go live', 'Pick a plan and your spot appears on Diner.ng for thousands of hungry explorers.'],
-                    ['⭐', 'Collect the love', 'Guests rate and review you; Sweet plan spots also take table bookings.']
+                    ['📸', 'Present your space', 'Add a cover photo and gallery. Great photography is your first impression.'],
+                    ['📖', 'Build your menu', 'Add dishes, prices and photos. Update them anytime — nothing to reprint.'],
+                    ['🚀', 'Go live', 'Choose a plan and your venue appears to diners looking for somewhere special.'],
+                    ['⭐', 'Welcome your guests', 'Respond to reviews personally; Sweet venues also take online reservations.']
                 ]) +
                 button('Open my dashboard', `${base}/dashboard`) +
                 small(`Need a hand? Reply to this email — a real human reads every one.`)
         }),
-        text: `Welcome to Diner.ng, ${first(o.name)}!\n\nYour account is ready. Next steps:\n1. Add photos of your spot\n2. Build your QR menu\n3. Pick a plan and go live\n4. Collect reviews (and bookings on Sweet)\n\nOpen your dashboard: ${base}/dashboard${textFooter}`
+        text: `Welcome to Diner.ng, ${first(o.name)}!\n\nYour account is ready. Next steps:\n1. Add photos of your venue\n2. Build your menu\n3. Pick a plan and go live\n4. Collect reviews (and bookings on Sweet)\n\nOpen your dashboard: ${base}/dashboard${textFooter}`
     };
 }
 

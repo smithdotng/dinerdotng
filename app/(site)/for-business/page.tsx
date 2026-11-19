@@ -7,8 +7,8 @@ import { naira } from '@/lib/format';
 import PlanCards from '@/components/PlanCards';
 
 export const metadata: Metadata = pageMeta({
-    title: 'For restaurants, hotels & event hotspots',
-    description: 'Your launchpad on Diner.ng: a beautiful listing, a QR menu you can update any time, guest reviews and table bookings.',
+    title: 'For premium restaurants, lounges & hotel dining',
+    description: 'Present your venue to discerning diners: a curated listing, an elegant QR menu that is always current, verified reviews and online reservations.',
     path: '/for-business',
     image: IMAGES.places.bar
 });
@@ -16,15 +16,15 @@ export const metadata: Metadata = pageMeta({
 export default function BusinessPage() {
     const promo = promoEnabled();
     const steps = [
-        ['fa-user-plus', 'Create your account', 'Sign up and tell us about your spot — name, type, location and contacts.'],
-        ['fa-images', 'Add menu & photos', 'Build your menu with prices and photos, and upload pictures of your space.'],
-        ['fa-credit-card', 'Pick a plan', promo ? `Basic or Sweet. First customers start from ${naira(PLANS.basic.firstCustomerPrice)} for the first month.` : 'Basic or Sweet, billed monthly.'],
-        ['fa-qrcode', 'Print your QR', 'Download your unique QR code, place it on tables, and welcome guests.']
+        ['fa-user-plus', 'Create your account', 'Tell us about your venue — name, type, location and contacts.'],
+        ['fa-images', 'Present your menu', 'Add your dishes, prices and photography, and showcase your space.'],
+        ['fa-credit-card', 'Choose your plan', promo ? `Basic or Sweet. First month ${naira(PLANS.basic.firstCustomerPrice)}.` : `Basic ${naira(PLANS.basic.price)} or Sweet ${naira(PLANS.sweet.price)} a month.`],
+        ['fa-qrcode', 'Welcome your guests', 'Place your QR code on each table and open your reservations.']
     ];
     const kinds = [
-        [IMAGES.food.fine, 'Restaurants & cafés', 'A menu guests can browse from their seat, updated in real time. Mark dishes sold out in one tap.'],
-        [IMAGES.places.hotelRoom, 'Hotels', 'List your restaurant, bar and room-service menus. Guests scan from the room or the poolside.'],
-        [IMAGES.places.wedding, 'Event hotspots', 'Show off your space, share packages and take bookings for tables and sections.']
+        [IMAGES.food.fine, 'Fine dining restaurants', 'A menu as considered as your kitchen, always current. Add tasting menus and seasonal dishes in moments.'],
+        [IMAGES.places.hotelRoom, 'Hotel dining', 'Present your restaurant, bar and in-room dining menus. Guests browse from the table, the suite or the poolside.'],
+        [IMAGES.places.bar, 'Lounges & rooftop bars', 'Showcase your space and cocktail list, and take reservations for tables and VIP sections.']
     ];
     return (
         <>
@@ -33,8 +33,8 @@ export default function BusinessPage() {
                 <div className="container">
                     <div className="row"><div className="col-lg-7">
                         <div className="crumbs"><Link href="/">Home</Link> / For business</div>
-                        <h1>Your spot, <span className="serif" style={{ color: 'var(--dn-accent-soft)' }}>beautifully served.</span></h1>
-                        <p>For restaurants, hotels, lounges and event hotspots. List your spot, share a QR menu, collect ratings and take bookings — without the hassle.</p>
+                        <h1>Your venue, <span className="serif" style={{ color: 'var(--dn-accent-soft)' }}>beautifully presented.</span></h1>
+                        <p>For premium restaurants, lounges and hotel dining. Reach diners who are looking for somewhere special, give every table an elegant menu and manage reservations with ease.</p>
                         <div className="d-flex gap-2 flex-wrap mt-4">
                             <Link href="/register" className="btn-dn-light btn-lg-dn">Create my account</Link>
                             <Link href="/pricing" className="btn-dn-ghost btn-lg-dn">See pricing</Link>
@@ -44,7 +44,7 @@ export default function BusinessPage() {
             </section>
             <section className="dn-section">
                 <div className="container">
-                    <div className="section-head"><span className="section-kicker">How it works</span><h2>Live in <span className="serif text-primary-dn">four</span> easy steps</h2></div>
+                    <div className="section-head"><span className="section-kicker">How it works</span><h2>Live in <span className="serif text-primary-dn">four</span> simple steps</h2></div>
                     <div className="row g-4">
                         {steps.map((s, i) => (
                             <div key={s[1]} className="col-sm-6 col-lg-3"><div className="step-card"><span className="num">0{i + 1}</span><span className="ic"><i className={`fas ${s[0]}`}></i></span><h4>{s[1]}</h4><p>{s[2]}</p></div></div>
@@ -69,7 +69,7 @@ export default function BusinessPage() {
             </section>
             <section className="dn-section">
                 <div className="container">
-                    <div className="section-head"><span className="section-kicker">Plans</span><h2>Choose how you want to grow</h2></div>
+                    <div className="section-head"><span className="section-kicker">Plans</span><h2>Choose the plan that fits your venue</h2></div>
                     <PlanCards promo={promo} />
                 </div>
             </section>

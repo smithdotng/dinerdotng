@@ -4,7 +4,7 @@ export const SPOT_TYPES = {
     hotel: { label: 'Hotel', icon: 'fa-hotel' },
     lounge: { label: 'Lounge & Bar', icon: 'fa-champagne-glasses' },
     cafe: { label: 'Café', icon: 'fa-mug-hot' },
-    event: { label: 'Event Hotspot', icon: 'fa-music' }
+    event: { label: 'Event Venue', icon: 'fa-music' }
 } as const;
 
 export type SpotType = keyof typeof SPOT_TYPES;

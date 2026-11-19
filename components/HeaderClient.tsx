@@ -21,7 +21,7 @@ export default function HeaderClient({ user }: { user: { role: string } | null }
         ['/explore', 'Explore'],
         ['/explore?type=restaurant', 'Restaurants'],
         ['/explore?type=hotel', 'Hotels'],
-        ['/explore?type=event', 'Hotspots'],
+        ['/explore?type=lounge', 'Lounges'],
         ['/blog', 'Blog'],
         ['/for-business', 'For business'],
         ['/pricing', 'Pricing']
@@ -50,7 +50,7 @@ export default function HeaderClient({ user }: { user: { role: string } | null }
                         ) : (
                             <>
                                 <Link href="/login" className="btn-dn-outline btn-sm-dn hide-md">Log in</Link>
-                                <Link href="/register" className="btn-dn btn-sm-dn hide-md">List your spot</Link>
+                                <Link href="/register" className="btn-dn btn-sm-dn hide-md">List your venue</Link>
                             </>
                         )}
                         <button className="dn-toggler" onClick={() => setOpen(true)} aria-label="Open menu">
@@ -80,7 +80,7 @@ export default function HeaderClient({ user }: { user: { role: string } | null }
                             </>
                         ) : (
                             <>
-                                <Link href="/register" className="btn-dn">List your spot</Link>
+                                <Link href="/register" className="btn-dn">List your venue</Link>
                                 <Link href="/login" className="btn-dn-outline">Log in</Link>
                             </>
                         )}
