@@ -22,6 +22,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                         items: [
                             { href: '/admin', label: 'Overview', icon: 'fa-chart-line', exact: true },
                             { href: '/admin/spots', label: 'Spots', icon: 'fa-store' },
+                            { href: '/admin/imports', label: 'Import venue', icon: 'fa-file-import' },
                             { href: '/admin/users', label: 'Accounts', icon: 'fa-users' },
                             { href: '/admin/payments', label: 'Payments', icon: 'fa-receipt' },
                             { href: '/admin/posts', label: 'Blog', icon: 'fa-pen-nib' },

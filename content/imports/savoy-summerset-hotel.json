@@ -1,0 +1,1971 @@
+{
+ "key": "savoy-summerset-hotel",
+ "source": "https://qrmenu.savoysummerset.com (live menu, 20 Nov 2026)",
+ "owner": {
+  "name": "Savoy Summerset Hotel",
+  "email": "reservations@savoysummerset.com",
+  "phone": "+234 201 295 4999"
+ },
+ "plan": "sweet",
+ "planAmount": 0,
+ "spot": {
+  "name": "Savoy Summerset Hotel",
+  "slug": "savoy-summerset-hotel-lagos",
+  "type": "hotel",
+  "tagline": "International and Nigerian dining, cocktails and poolside evenings in Ikeja GRA",
+  "description": "Savoy Summerset Hotel sits on Isaac John Street in Ikeja GRA, Lagos. Its restaurant and cocktail bar are open daily from 9am to 11pm, serving full English and Nigerian breakfasts, grilled steaks and lamb chops, prawns thermidor, Mexican favourites, pizzas and a full selection of Nigerian soups and swallows. The bar pours champagne, fine wines, premium spirits and signature cocktails, with the hotel's lit outdoor pool setting the scene in the evening.",
+  "cuisines": [
+   "International",
+   "Continental",
+   "Nigerian",
+   "Mexican",
+   "Seafood",
+   "Cocktails"
+  ],
+  "priceRange": 3,
+  "address": "43 Isaac John Street, Ikeja GRA",
+  "area": "Ikeja GRA",
+  "city": "Lagos",
+  "state": "Lagos",
+  "phone": "+234 201 295 4999",
+  "email": "reservations@savoysummerset.com",
+  "website": "https://savoysummerset.com",
+  "hours": [
+   {
+    "day": "Monday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   },
+   {
+    "day": "Tuesday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   },
+   {
+    "day": "Wednesday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   },
+   {
+    "day": "Thursday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   },
+   {
+    "day": "Friday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   },
+   {
+    "day": "Saturday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   },
+   {
+    "day": "Sunday",
+    "open": "09:00",
+    "close": "23:00",
+    "closed": false
+   }
+  ],
+  "coverImage": "/imports/savoy-summerset-hotel/cover.jpg",
+  "logo": "/imports/savoy-summerset-hotel/logo.png",
+  "gallery": [
+   {
+    "url": "/imports/savoy-summerset-hotel/pool-evening.jpg",
+    "caption": "The pool at night"
+   },
+   {
+    "url": "/imports/savoy-summerset-hotel/poolside.jpg",
+    "caption": "Poolside loungers"
+   },
+   {
+    "url": "/imports/savoy-summerset-hotel/royal-suite.jpg",
+    "caption": "Royal Suite"
+   }
+  ],
+  "reservations": {
+   "enabled": true,
+   "openTime": "09:00",
+   "closeTime": "22:00",
+   "slotMinutes": 30,
+   "maxPartySize": 12,
+   "note": "For groups larger than 12 or private dining, please call the hotel."
+  }
+ },
+ "categories": [
+  "Breakfast",
+  "Starters & Salads",
+  "Soups",
+  "Nigerian Hot Pot",
+  "Chicken & Beef",
+  "Seafood",
+  "Pasta",
+  "Mexican",
+  "Savoy Specials & Pizza",
+  "Sandwiches & Burgers",
+  "Desserts",
+  "Sides & Extras",
+  "Hot Drinks",
+  "Fresh Juices & Smoothies",
+  "Cocktails & Mocktails",
+  "Champagne & Wine",
+  "Spirits & Liqueurs",
+  "Beer, Stout & Malt",
+  "Soft Drinks & Water"
+ ],
+ "items": [
+  {
+   "category": "Breakfast",
+   "name": "Nigerian Breakfast",
+   "description": "Juice; yam or plantain; egg sauce or fried eggs with onions; chicken or mixed beef stew; milk & sugar.",
+   "price": 13000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "English Breakfast",
+   "description": "Juice; fried eggs; bacon & sausages; baked beans; bread roll or sliced bread; butter, jam & marmalade; tea or coffee with milk & sugar; oatmeal; mushroom & sliced tomato.",
+   "price": 12500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Continental Breakfast Buffet",
+   "description": "Juice; bread rolls or sliced bread; fried or boiled eggs, Spanish or scrambled omelette; butter & jam, marmalade or honey; tea or coffee with milk & sugar; corn flakes & other cereals; yam, sweet potato or Irish potato; oatmeal or ogi (pap); sausage; akara or moi-moi; beans porridge; chef-style Indomie stir fry. Price applies to non in-house guests.",
+   "price": 8500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Boiled Potato Breakfast",
+   "description": "Boiled potatoes with sardine sauce, or with omelette and sausages.",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Indomie & Egg",
+   "price": 7000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Eggs, Any Style",
+   "description": "Fried, scrambled, poached or boiled, or a plain omelette.",
+   "price": 3000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Filled Omelette",
+   "description": "Ham, mushroom or any filling of your choice.",
+   "price": 5500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Egg Sauce or Fried Egg",
+   "description": "With onions, tomatoes & pepper.",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Bacon & Ham",
+   "price": 4000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Sausage",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Baked Beans",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Boiled or Fried Yam or Plantain",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Corned Beef Stew",
+   "price": 6000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Chicken or Beef Stew",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Corn Flakes",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Cheese Spread (Portion)",
+   "price": 5500,
+   "available": true
+  },
+  {
+   "category": "Breakfast",
+   "name": "Pot of Tea or Coffee",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Shrimp Cocktail",
+   "description": "On lettuce, cucumber & tomato with cocktail dressing.",
+   "price": 13000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Chicken Tenders / Escalope / Strips",
+   "description": "Marinated chicken coated with corn flour or breadcrumbs, deep fried, served with tartare sauce or cocktail dressing.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Golden Chicken Wings or Lollipops",
+   "description": "Coated in butter, egg yolk & breadcrumbs, deep fried and served with a special chilli sauce.",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Buffalo Wings",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Hot Chilli Chicken Wings",
+   "price": 9000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Suya (Beef or Chicken)",
+   "price": 14000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Spring Rolls",
+   "description": "Vegetables, chicken & beef.",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Spring Rolls with Shrimp",
+   "price": 11000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Samosa",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Prawn Salad",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Mexican Salad",
+   "description": "Chicken breast, ham, sausage or pepperoni, lettuce, sweet corn, tomatoes & onions. Hot spicy dressing on request.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Chicken Salad",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Salade Niçoise",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Neptune Salad",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Chef’s House Salad",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Starters & Salads",
+   "name": "Mixed Salad",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Nigerian Pepper Soup",
+   "description": "With chicken or goat meat.",
+   "price": 14000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Pepper Soup with Assorted Meat",
+   "price": 17000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Fish Pepper Soup",
+   "description": "Served with bread rolls or toast bread.",
+   "price": 17500,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Cow Leg Pepper Soup",
+   "price": 14000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Cream of Chicken, Cheese & Broccoli Soup",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Cream of Chicken & Corn Soup",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Cream of Chicken Noodle Soup",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Cream of Mushroom Soup",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Soups",
+   "name": "Cream of Vegetable Soup",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Okro Seafood",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Efo Riro",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Efo Riro with Fish",
+   "description": "Served with a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 19500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Egusi Soup",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Afang Soup",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Edikaikong Soup",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Ogbono Soup",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Mixed Okro Soup",
+   "description": "Served with a choice of beef, goat meat or chicken, and a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Local Soup with Assorted Meat",
+   "description": "Any of our local soups with assorted meat. Served with a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 21000,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Local Soup with Stockfish",
+   "description": "Local soup with stock fish. Served with a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 20500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Local Soup with Snails",
+   "description": "Local soup with snails. Served with a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Local Soup with Fried or Boiled Fish",
+   "description": "Local soup with fried or boiled fish. Served with a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Local Soup with Dried Fish",
+   "description": "Local soup with dried fish. Served with a choice of semovita, pounded yam, wheat, amala or eba.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Stewed Beans",
+   "description": "Served with dodo or yam. Please allow 2 hours for this order.",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Stewed Beans with Assorted Meat Stew",
+   "description": "Stewed beans with assorted meat stew. Served with dodo or yam. Please allow 2 hours for this order.",
+   "price": 21000,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Stewed Beans with Beef, Goat or Chicken Stew",
+   "description": "Stewed beans with beef, goat meat or chicken stew. Served with dodo or yam. Please allow 2 hours for this order.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Stewed Beans with Fried or Boiled Fish",
+   "description": "Stewed beans with fried or boiled fish. Served with dodo or yam. Please allow 2 hours for this order.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Stewed Beans with Snails",
+   "description": "Stewed beans with snails. Served with dodo or yam. Please allow 2 hours for this order.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Yam or Plantain Pottage",
+   "description": "Garnished with smoked fish & ugwu.",
+   "price": 9000,
+   "available": true
+  },
+  {
+   "category": "Nigerian Hot Pot",
+   "name": "Peppered Snail",
+   "price": 17500,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Grilled T-Bone Steak",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 23000,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Grilled Fillet Steak",
+   "description": "In black pepper, red pepper or gravy sauce. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Lamb Chops",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Beef Bourguignon",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Beef Stroganoff",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Beef Kebab (Fillet Steak)",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Beef Satay",
+   "description": "Malaysian style, served with peanut sauce. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Oriental Garlic Steak",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Shredded Beef",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Chicken Cordon Bleu",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Chicken & Shrimp Stew",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 22500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Grilled Chicken",
+   "description": "In garlic or lemon sauce. Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Roast Chicken",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Pepper Chicken",
+   "description": "Grilled or fried. Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Hot & Spicy Compound Chicken",
+   "description": "Chinese style. Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Barbecue Chicken",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Curry Chicken",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Chicken Stroganoff",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Chicken Casserole",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Chicken Kebab",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Chicken Satay",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Chicken & Beef",
+   "name": "Shredded Chicken",
+   "description": "Choice of chicken breast or thigh. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips or spaghetti. Accompanied with fresh garden vegetables or dodo.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Prawns Thermidor",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Gambas à l’Américaine",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Grilled Prawns",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Pepper Prawns",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Hot Chilli Prawns",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Curry Prawns",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Buffalo Prawns",
+   "description": "Marinated prawns coated with breadcrumbs, deep fried, served with Buffalo sauce. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Scampi",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Chicken & Shrimp Stew (Seafood)",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 23500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Roast Fish",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 20000,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Grilled Fillet Fish",
+   "description": "In pepper, chilli or curry sauce. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Fried Fish",
+   "description": "In pepper, chilli or curry sauce. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Boiled Fish",
+   "description": "In pepper, chilli or curry sauce. Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Grilled Fish Pannet",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 17000,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Poisson à la Crème",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 16000,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Crevettes à l’Américaine",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 15000,
+   "available": true
+  },
+  {
+   "category": "Seafood",
+   "name": "Shrimps in Pepper or Chilli Sauce",
+   "description": "Served with a choice of sautéed, roasted, mashed, buttered or boiled potatoes; fried, jollof, buttered, white or Chinese fried rice (Chinese fried rice +₦2,000); chips, spaghetti or basmati rice.",
+   "price": 15000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Savoy Spaghetti Speciale (Prawns, Chicken & Shrimps or Ham)",
+   "description": "Savoy Spaghetti Speciale with prawns, chicken & shrimps or ham.",
+   "price": 32500,
+   "tags": [
+    "chef"
+   ],
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Savoy Spaghetti Speciale (Prawns & Chicken)",
+   "description": "Savoy Spaghetti Speciale with prawns & chicken.",
+   "price": 27500,
+   "tags": [
+    "chef"
+   ],
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Savoy Spaghetti Speciale (Chicken & Shrimps)",
+   "description": "Savoy Spaghetti Speciale with chicken and shrimps.",
+   "price": 22500,
+   "tags": [
+    "chef"
+   ],
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Spaghetti Seafood in Tomato Sauce",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Spaghetti in White Prawn Sauce",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Spaghetti in Chicken Tomato Sauce",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Chicken Alfredo",
+   "price": 17000,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Grilled Shrimp Alfredo",
+   "price": 15000,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Spaghetti Bolognese",
+   "price": 15000,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Lasagne",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Penne Arrabbiata",
+   "description": "In chilli or tomato sauce.",
+   "price": 13000,
+   "tags": [
+    "spicy"
+   ],
+   "available": true
+  },
+  {
+   "category": "Pasta",
+   "name": "Spaghetti Carbonara",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Enchilada",
+   "description": "Two flour tortillas rubbed with red sauce, topped with mixed cheese. Choice of chicken, vegetable or taco beef.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Enchilada with Prawns",
+   "description": "Two flour tortillas rubbed with red sauce, topped with mixed cheese, with prawns.",
+   "price": 27500,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Burritos",
+   "description": "A large flour tortilla stuffed with Mexican cheese, beans & lettuce. Choice of chicken or taco beef.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Chimichanga",
+   "description": "Flour tortilla stuffed with mixed Mexican cheese and a choice of chicken, taco beef or vegetable, deep fried, served with avocado or any rice. Avocado may not always be available.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "D.D. Nachos",
+   "description": "Two crispy flour tortillas rubbed with black beans and ranchero sauce, mixed with cheese. Choice of chicken, taco beef or vegetable.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Taco Salad",
+   "description": "Deep-fried flour tortilla, Mexican style, covered with lettuce, cheese, onions and black olives. Served with blue cheese sauce, Thousand Island dressing or sour cream.",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Potato Skins",
+   "description": "Deep-fried potato skin stuffed with mixed cheese and bacon.",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "B.L.T. Wrap",
+   "description": "Two fresh flour tortillas wrapped and stuffed with lettuce, bacon and parmesan or cheddar cheese, served with French fries.",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Mexican",
+   "name": "Meatballs",
+   "description": "Meatballs (boulettes de boeuf).",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Fried Rice Fiesta",
+   "description": "Beef or chicken, shrimps & prawns.",
+   "price": 32500,
+   "tags": [
+    "chef"
+   ],
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Jollof Rice Fiesta",
+   "description": "Corned beef, chicken & prawns.",
+   "price": 27500,
+   "tags": [
+    "chef"
+   ],
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Potatoes Lyonnaise",
+   "description": "With a choice of chicken, fish or prawns.",
+   "price": 27500,
+   "tags": [
+    "chef"
+   ],
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Chicken Sausage Fried Rice Special",
+   "price": 18500,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Steak Pizza",
+   "price": 17000,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Chicken Pizza",
+   "price": 17000,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Shrimp Pizza",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Sausage & Ham Pizza",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Fructus Delight Pizza",
+   "description": "Sausage or shrimps with pineapple.",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Pizza Margherita",
+   "price": 14000,
+   "tags": [
+    "vegetarian"
+   ],
+   "available": true
+  },
+  {
+   "category": "Savoy Specials & Pizza",
+   "name": "Vegetarian Pizza",
+   "price": 14000,
+   "tags": [
+    "vegetarian"
+   ],
+   "available": true
+  },
+  {
+   "category": "Sandwiches & Burgers",
+   "name": "Savoy Club Sandwich",
+   "description": "Served with chips.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Sandwiches & Burgers",
+   "name": "Cheeseburger",
+   "description": "With chicken or beef. Served with chips.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Sandwiches & Burgers",
+   "name": "Chicken or Beef Burger",
+   "description": "Served with chips.",
+   "price": 17500,
+   "available": true
+  },
+  {
+   "category": "Sandwiches & Burgers",
+   "name": "Egg Burger",
+   "description": "Served with chips.",
+   "price": 11500,
+   "available": true
+  },
+  {
+   "category": "Sandwiches & Burgers",
+   "name": "Cheese & Ham Omelette",
+   "description": "Served with chips.",
+   "price": 11000,
+   "available": true
+  },
+  {
+   "category": "Desserts",
+   "name": "Banana Split",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Desserts",
+   "name": "Crème Caramel",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Desserts",
+   "name": "Vanilla or Chocolate Ice Cream",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Desserts",
+   "name": "Fresh Fruit Salad",
+   "price": 7000,
+   "tags": [
+    "vegetarian"
+   ],
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Prawns (Portion)",
+   "price": 27000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Fillet Fish (Boneless)",
+   "price": 20000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Assorted Meat (Portion)",
+   "price": 17000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Fish (Portion)",
+   "price": 17000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Chicken (Portion)",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Beef, Assorted Meat or Goat Meat (Portion)",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Shrimps (Portion)",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Extra Piece of Beef, Cow Leg, Shaki or Goat Meat",
+   "price": 6000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Local Soup (Extra Bowl)",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Basmati Rice",
+   "price": 6000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Jollof or Fried Rice",
+   "price": 4500,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "White Rice or Spaghetti",
+   "price": 4000,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Chips (French Fries)",
+   "price": 4500,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Dodo or Yam",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Eba or Amala",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Sides & Extras",
+   "name": "Semovita, Pounded Yam or Wheat",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Nespresso",
+   "price": 7500,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Cappuccino (Hot or Iced)",
+   "price": 7500,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Latte Macchiato or Café Latte",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Hot or Cold Chocolate",
+   "price": 4500,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Coffee (Nescafé)",
+   "price": 4000,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Tea",
+   "price": 4000,
+   "available": true
+  },
+  {
+   "category": "Hot Drinks",
+   "name": "Herbal Tea",
+   "price": 4000,
+   "available": true
+  },
+  {
+   "category": "Fresh Juices & Smoothies",
+   "name": "Blended Fruits or Vegetables",
+   "price": 7000,
+   "available": true
+  },
+  {
+   "category": "Fresh Juices & Smoothies",
+   "name": "Fresh Orange or Blended Juice",
+   "price": 6000,
+   "available": true
+  },
+  {
+   "category": "Fresh Juices & Smoothies",
+   "name": "Pineapple, Orange, Apple or Mango Juice",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Long Island Iced Tea",
+   "price": 16000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Mai Tai",
+   "price": 14000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Strawberry Margarita",
+   "price": 13500,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Pineapple Margarita",
+   "price": 13000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Tequila Sunrise",
+   "price": 13000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Piña Colada",
+   "price": 13000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Chi-Chi",
+   "price": 13000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Sex on the Beach",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Black Russian",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Screwdriver",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Americano",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Ceaser Makes Sense",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Eko Akete",
+   "price": 11000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Martini",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Bloody Mary",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Pussyfoot (Mocktail)",
+   "price": 12000,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Chapman (Large)",
+   "price": 6500,
+   "available": true
+  },
+  {
+   "category": "Cocktails & Mocktails",
+   "name": "Chapman (Small)",
+   "price": 4500,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Moët & Chandon Nectar",
+   "price": 275000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Moët & Chandon Brut",
+   "price": 220000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Veuve Clicquot",
+   "price": 220000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Châteauneuf-du-Pape (Red)",
+   "price": 85000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Thomas Barton Chablis (White)",
+   "price": 50000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Boschendal Chardonnay (White)",
+   "price": 50000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Boschendal Pavillon Sauvignon Blanc",
+   "price": 30000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Boschendal",
+   "price": 30000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Boschendal Pavillon",
+   "price": 16500,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Saint-Émilion (Merlot, Red)",
+   "price": 37000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Rubis Red (Sweet)",
+   "price": 60000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Tall Horse",
+   "price": 50000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Kagor Red",
+   "price": 45000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Kerror",
+   "price": 45000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Giancondi",
+   "price": 45000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Drostdy-Hof",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Four Cousins",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Frontera Red",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Frontera White",
+   "price": 35000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Douglas Green Red",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Douglas Green White",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Moscato (Sparkling)",
+   "price": 25000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Moscato Elixir",
+   "price": 22000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Arabella Red",
+   "price": 22000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Domaine la Baume",
+   "price": 22000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Jan van Riebeeck Red",
+   "price": 16500,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Jan van Riebeeck White",
+   "price": 15000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "Jan van Riebeeck",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Champagne & Wine",
+   "name": "House Wine",
+   "price": 10000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Johnnie Walker Blue Label",
+   "price": 250000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Glenfiddich 15 Year Old",
+   "price": 250000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Hennessy VSOP",
+   "price": 230000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Hennessy Black",
+   "price": 210000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Rémy Martin VSOP",
+   "price": 190000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Rémy Martin VSOP (check price)",
+   "price": 165000,
+   "available": false
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Hennessy VS",
+   "price": 150000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Belvedere Vodka",
+   "price": 150000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Martell",
+   "price": 125000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Jameson Black Barrel",
+   "price": 120000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Grey Goose Vodka",
+   "price": 120000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Cîroc Vodka",
+   "price": 120000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Chivas Regal",
+   "price": 100000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Johnnie Walker Black Label",
+   "price": 100000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Jack Daniel’s",
+   "price": 95000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Jameson",
+   "price": 80000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Bombay Sapphire",
+   "price": 68000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Olmeca Tequila",
+   "price": 65000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Irish Cream",
+   "price": 60000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Southern Comfort",
+   "price": 60000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Wild Turkey",
+   "price": 60000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Skyy Vodka",
+   "price": 60000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Campari",
+   "price": 55000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Johnnie Walker Red Label",
+   "price": 55000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Absolut Blue Vodka",
+   "price": 50000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Smirnoff Red Vodka",
+   "price": 50000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Martini Rosso",
+   "price": 49000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Martini Bianco",
+   "price": 49000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Martini Extra Dry",
+   "price": 49000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Jägermeister",
+   "price": 45000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "B&G",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Smirnoff Blue Vodka",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Bacardi Rum",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Malibu Coconut",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Peach Schnapps",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Vermouth",
+   "price": 40000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Cointreau",
+   "price": 35000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Tia Maria",
+   "price": 35000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Kahlúa",
+   "price": 32000,
+   "available": true
+  },
+  {
+   "category": "Spirits & Liqueurs",
+   "name": "Gordon’s Gin",
+   "price": 30000,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Heineken (Large)",
+   "price": 3700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Heineken (Small)",
+   "price": 3200,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Budweiser",
+   "price": 3500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Guinness Stout (Large)",
+   "price": 3700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Guinness Stout (Medium)",
+   "price": 3200,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Guinness Stout (Small)",
+   "price": 2700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Guinness Extra Smooth",
+   "price": 2700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Guinness Gold",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Smirnoff Ice (Large)",
+   "price": 3700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Smirnoff Ice (Small)",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Origin",
+   "price": 3700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Star / Radler",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Gulder",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Goldberg",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Trophy",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Harp",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Satzenbrau",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Snapp",
+   "price": 2500,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Malta Guinness",
+   "price": 1700,
+   "available": true
+  },
+  {
+   "category": "Beer, Stout & Malt",
+   "name": "Maltina or Amstel Malta",
+   "price": 1700,
+   "available": true
+  },
+  {
+   "category": "Soft Drinks & Water",
+   "name": "Red Bull",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Soft Drinks & Water",
+   "name": "Power Horse",
+   "price": 5000,
+   "available": true
+  },
+  {
+   "category": "Soft Drinks & Water",
+   "name": "Coca-Cola",
+   "price": 1000,
+   "available": true
+  },
+  {
+   "category": "Soft Drinks & Water",
+   "name": "Diet Coke",
+   "price": 1000,
+   "available": true
+  },
+  {
+   "category": "Soft Drinks & Water",
+   "name": "Bottled Water (Large)",
+   "price": 1500,
+   "available": true
+  },
+  {
+   "category": "Soft Drinks & Water",
+   "name": "Bottled Water (Small)",
+   "price": 1000,
+   "available": true
+  }
+ ]
+}
