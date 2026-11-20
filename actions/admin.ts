@@ -12,6 +12,8 @@ import { flashUrl, randomCode, str } from '@/lib/helpers';
 import { activatePayment, reconcilePayment } from '@/lib/subscription';
 import { notifySubscription } from '@/lib/notify';
 import { sendEmail, mailProvider } from '@/lib/mailer';
+import { getSession } from '@/lib/session';
+import { findVenueImport, runVenueImport } from '@/lib/venueImport';
 
 const back = (fd: FormData) => (str(fd, 'back').startsWith('/admin') ? str(fd, 'back') : '/admin/spots');
 
@@ -89,4 +91,39 @@ export async function sendTestEmailAction(formData: FormData): Promise<void> {
     if (!e) redirect('/admin/emails');
     const ok = await sendEmail({ to: me.email, ...e.email, subject: `[Test] ${e.email.subject}` });
     redirect(flashUrl(`/admin/emails?t=${key}`, ok ? 'success' : 'error', ok ? (mailProvider() === 'console' ? 'Printed to the server log (no email provider configured).' : `Test sent to ${me.email}.`) : 'Sending failed — check your email settings and the server log.'));
+}
+
+/** Concierge onboarding: create or refresh a venue from a curated import file. */
+export async function importVenueAction(key: string): Promise<void> {
+    await requireAdmin();
+    const data = findVenueImport(key);
+    if (!data) redirect(flashUrl('/admin/imports', 'error', 'That import file was not found.'));
+    let result;
+    try {
+        result = await runVenueImport(data!);
+    } catch (e) {
+        redirect(flashUrl('/admin/imports', 'error', `Import failed: ${(e as Error).message}`));
+    }
+    // The temporary password travels in the encrypted session cookie, never in the URL.
+    const session = await getSession();
+    session.importNotice = {
+        spotName: result!.spotName,
+        slug: result!.slug,
+        email: data!.owner.email,
+        tempPassword: result!.tempPassword,
+        items: result!.items,
+        planActivated: result!.planActivated
+    };
+    await session.save();
+    revalidatePath('/', 'layout');
+    redirect('/admin/imports');
+}
+
+/** Hide the post-import notice (and the temporary password) once the admin has noted it. */
+export async function dismissImportNoticeAction(): Promise<void> {
+    await requireAdmin();
+    const session = await getSession();
+    session.importNotice = undefined;
+    await session.save();
+    redirect('/admin/imports');
 }

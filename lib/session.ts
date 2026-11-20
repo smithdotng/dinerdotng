@@ -17,6 +17,8 @@ export interface SessionUser {
 export interface SessionData {
     user?: SessionUser;
     intendedPlan?: string;
+    /** One-time message for an admin after a venue import (holds a new owner's temporary password). */
+    importNotice?: { spotName: string; slug: string; email: string; tempPassword?: string; items: number; planActivated: boolean };
 }
 
 const DEV_SESSION_SECRET = 'dinerdotng-dev-secret-change-in-production-32-chars-min';
